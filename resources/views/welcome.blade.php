@@ -1,0 +1,316 @@
+@extends('layouts.app')
+
+@section('title', 'Home')
+
+@section('mainClass', 'active') {{--Не работи--}}
+
+@section('body')
+
+    <div class="sc-content-container">
+        <div class="row">
+            <div class="col col-lg-2 col-lg-offset-1">
+                <select class="form-control" name="Make" id="make">
+                    <option value="">Марка</option>
+                    <optgroup label="A"/>
+                    <option value="AC">AC</option>
+                    <option value="Acura">Acura</option>
+                    <option value="Aixam">Aixam</option>
+                    <option value="Alfa romeo">Alfa romeo</option>
+                    <option value="Aston martin">Aston martin</option>
+                    <option value="Audi">Audi</option>
+                    <option value="Austin">Austin</option>
+                    </optgroup>
+
+                    <optgroup label="B">
+                        <option value="Bentley">Bentley</option>
+                        <option value="Berliner">Berliner</option>
+                        <option value="Bmw">Bmw</option>
+                        <option value="Borgward">Borgward</option>
+                        <option value="Brilliance">Brilliance</option>
+                        <option value="Bugatti">Bugatti</option>
+                        <option value="Buick">Buick</option>
+                    </optgroup>
+
+                    <optgroup label="C">
+                        <option value="Cadillac">Cadillac</option>
+                        <option value="Chevrolet">Chevrolet</option>
+                        <option value="Chrysler">Chrysler</option>
+                        <option value="Citroen">Citroen</option>
+                        <option value="Corvette">Corvette</option>
+                    </optgroup>
+
+                    <optgroup label="D">
+                        <option value="Dacia">Dacia</option>
+                        <option value="Daewoo">Daewoo</option>
+                        <option value="Daihatsu">Daihatsu</option>
+                        <option value="Daimler">Daimler</option>
+                        <option value="Datsun">Datsun</option>
+                        <option value="Dkw">Dkw</option>
+                        <option value="Dodge">Dodge</option>
+                        <option value="Dr">Dr</option>
+                    </optgroup>
+
+                    <optgroup label="E">
+                        <option value="Eagle">Eagle</option>
+                    </optgroup>
+
+                    <optgroup label="F">
+                        <option value="FSO">FSO</option>
+                        <option value="Ferrari">Ferrari</option>
+                        <option value="Fiat">Fiat</option>
+                        <option value="Ford">Ford</option>
+                    </optgroup>
+
+                    <optgroup label="G">
+                        <option value="Geo">Geo</option>
+                        <option value="Great Wall">Great Wall</option>
+                    </optgroup>
+
+                    <optgroup label="H">
+                        <option value="Heinkel">Heinkel</option>
+                        <option value="Honda">Honda</option>
+                        <option value="Hyundai">Hyundai</option>
+                    </optgroup>
+
+                    <optgroup label="I">
+                        <option value="Ifa">Ifa</option>
+                        <option value="Infiniti">Infiniti</option>
+                        <option value="Innocenti">Innocenti</option>
+                        <option value="Isuzu">Isuzu</option>
+                    </optgroup>
+
+                    <optgroup label="J">
+                        <option value="Jaguar">Jaguar</option>
+                    </optgroup>
+
+                    <optgroup label="K">
+                        <option value="Kia">Kia</option>
+                    </optgroup>
+
+                    <optgroup label="L">
+                        <option value="Lada">Lada</option>
+                        <option value="Lamborghini">Lamborghini</option>
+                        <option value="Lancia">Lancia</option>
+                        <option value="Lexus">Lexus</option>
+                        <option value="Lifan">Lifan</option>
+                        <option value="Lincoln">Lincoln</option>
+                        <option value="Lotus">Lotus</option>
+                    </optgroup>
+
+                    <optgroup label="M">
+                        <option value="Maserati">Maserati</option>
+                        <option value="Matra">Matra</option>
+                        <option value="Maybach">Maybach</option>
+                        <option value="Mazda">Mazda</option>
+                        <option value="McLaren">McLaren</option>
+                        <option value="Mercedes">Mercedes</option>
+                        <option value="Mercury">Mercury</option>
+                        <option value="Mg">Mg</option>
+                        <option value="Mini">Mini</option>
+                        <option value="Mitsubishi">Mitsubishi</option>
+                        <option value="Morgan">Morgan</option>
+                        <option value="Moskvich">Moskvich</option>
+                    </optgroup>
+
+                    <optgroup label="N">
+                        <option value="Nissan">Nissan</option>
+                    </optgroup>
+
+                    <optgroup label="O">
+                        <option value="Oldsmobile">Oldsmobile</option>
+                        <option value="Opel">Opel</option>
+                    </optgroup>
+
+                    <optgroup label="P">
+                        <option value="Perodua">Perodua</option>
+                        <option value="Peugeot">Peugeot</option>
+                        <option value="Pgo">Pgo</option>
+                        <option value="Plymouth">Plymouth</option>
+                        <option value="Polonez">Polonez</option>
+                        <option value="Pontiac">Pontiac</option>
+                        <option value="Porsche">Porsche</option>
+                        <option value="Proton">Proton</option>
+                    </optgroup>
+
+                    <optgroup label="R">
+                        <option value="Renault">Renault</option>
+                        <option value="Rolls-Royce">Rolls-Royce</option>
+                        <option value="Rover">Rover</option>
+                    </optgroup>
+
+                    <optgroup label="S">
+                        <option value="SECMA">SECMA</option>
+                        <option value="Saab">Saab</option>
+                        <option value="Samand">Samand</option>
+                        <option value="Saturn">Saturn</option>
+                        <option value="Scion">Scion</option>
+                        <option value="Seat">Seat</option>
+                        <option value="Shatenet">Shatenet</option>
+                        <option value="Shuanghuan">Shuanghuan</option>
+                        <option value="Simca">Simca</option>
+                        <option value="Skoda">Skoda</option>
+                        <option value="Smart">Smart</option>
+                        <option value="Ssang yong">Ssang yong</option>
+                        <option value="Subaru">Subaru</option>
+                        <option value="Suzuki">Suzuki</option>
+                    </optgroup>
+
+                    <optgroup label="T">
+                        <option value="Talbot">Talbot</option>
+                        <option value="Tata">Tata</option>
+                        <option value="Tavria">Tavria</option>
+                        <option value="Tazzari">Tazzari</option>
+                        <option value="Terberg">Terberg</option>
+                        <option value="Tesla">Tesla</option>
+                        <option value="Tofas">Tofas</option>
+                        <option value="Toyota">Toyota</option>
+                        <option value="Trabant">Trabant</option>
+                        <option value="Triumph">Triumph</option>
+                    </optgroup>
+
+                    <optgroup label="V">
+                        <option value="VROMOS">VROMOS</option>
+                        <option value="Volga">Volga</option>
+                        <option value="Volvo">Volvo</option>
+                        <option value="Vw">Vw</option>
+                    </optgroup>
+
+                    <optgroup label="W">
+                        <option value="Warszawa">Warszawa</option>
+                        <option value="Wartburg">Wartburg</option>
+                        <option value="Wiesmann">Wiesmann</option>
+                    </optgroup>
+
+                    <optgroup label="X">
+                        <option value="Xinshun">Xinshun</option>
+                    </optgroup>
+
+                    <optgroup label="Z">
+                        <option value="Zastava">Zastava</option>
+                        <option value="Zaz">Zaz</option>
+                    </optgroup>
+
+                    <optgroup label="Д">
+                        <option value="Други">Други</option>
+                    </optgroup>
+
+                    <optgroup label="П">
+                        <option value="Победа">Победа</option>
+                    </optgroup>
+
+                    <optgroup label="С">
+                        <option value="София">София</option>
+                    </optgroup>
+
+                    <optgroup label="Ч">
+                        <option value="Чайка">Чайка</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="col col-lg-2">
+                <select class="form-control" disabled>
+                    <option>Модел</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="col col-lg-2 col-sm-offset-2">
+                Тук ще има Bootstrap Carousel с реклами на автомобили.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-lg-2 col-lg-offset-1">
+                <select class="form-control">
+                    <option>Година на производство</option>
+                    <option value="1990">1990</option>
+                    <option value="1991">1991</option>
+                    <option value="1992">1992</option>
+                    <option value="1993">1993</option>
+                    <option value="1994">1994</option>
+                    <option value="1995">1995</option>
+                    <option value="1996">1996</option>
+                    <option value="1997">1997</option>
+                    <option value="1998">1998</option>
+                    <option value="1999">1999</option>
+                    <option value="2000">2000</option>
+                    <option value="2001">2001</option>
+                    <option value="2002">2002</option>
+                    <option value="2003">2003</option>
+                    <option value="2004">2004</option>
+                    <option value="2005">2005</option>
+                    <option value="2006">2006</option>
+                    <option value="2007">2007</option>
+                    <option value="2008">2008</option>
+                    <option value="2009">2009</option>
+                    <option value="2010">2010</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="col col-lg-2">
+                <select class="form-control">
+                    <option>Цена до</option>
+                    <option value="500">500 лв</option>
+                    <option value="1000">1000 лв</option>
+                    <option value="1500">1500 лв</option>
+                    <option value="2000">2000 лв</option>
+                    <option value="2500">2500 лв</option>
+                    <option value="3000">3000 лв</option>
+                    <option value="3500">3500 лв</option>
+                    <option value="4000">4000 лв</option>
+                    <option value="4500">4500 лв</option>
+                    <option value="5000">5000 лв</option>
+                    <option value="6000">6000 лв</option>
+                    <option value="7000">7000 лв</option>
+                    <option value="8000">8000 лв</option>
+                    <option value="9000">9000 лв</option>
+                    <option value="10000">10000 лв</option>
+                    <option value="">Over 10000 лв</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-lg-2 col-lg-offset-1">
+                <select class="form-control">
+                    <option>Тип гориво</option>
+                    <option value="Gasoline">Бензин</option>
+                    <option value="Diesel">Дизел</option>
+                    <option value="Hybrid">Хибрид</option>
+                    <option value="Other">Друго</option>
+                    </optgroup>
+                </select>
+            </div>
+            {{--<div class="col col-lg-2">--}}
+                {{--<input type="text" class="form-control" placeholder="К.С. от">--}}
+            {{--</div>--}}
+            <div class="form-group">
+                <div class="col col-lg-2 inputGroupContainer">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="price" placeholder="Мощност" id="price"/>
+                        <span class="input-group-addon">к.с.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-lg-2 col-lg-offset-1 text-center">
+                <label class="radio-inline">
+                    <input type="radio" name="condition" value="New"> Нов
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="condition" value="Used" checked> Употребяван
+                </label>
+            </div>
+            <div class="col col-lg-2">
+                <button type="button" class="btn btn-def btn-block"><i class="fa fa-search" aria-hidden="true"></i>
+                    Търсене
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-lg-2 col-lg-offset-3 text-center">
+                <a href="/findcar">Подробно търсене</a>
+            </div>
+        </div>
+    </div>
+
+@endsection

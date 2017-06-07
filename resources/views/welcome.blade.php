@@ -6,7 +6,7 @@
 
 @section('body')
 
-    <div class="sc-content-container">
+    <div class="sc-content-container col-md-4 col-sm-12>
         <div class="row">
             <div class="col col-lg-2 col-lg-offset-1">
                 <select class="form-control" name="Make" id="make">
@@ -247,23 +247,23 @@
             </div>
             <div class="col col-lg-2">
                 <select class="form-control">
-                    <option>Цена до</option>
-                    <option value="500">500 лв</option>
-                    <option value="1000">1000 лв</option>
-                    <option value="1500">1500 лв</option>
-                    <option value="2000">2000 лв</option>
-                    <option value="2500">2500 лв</option>
-                    <option value="3000">3000 лв</option>
-                    <option value="3500">3500 лв</option>
-                    <option value="4000">4000 лв</option>
-                    <option value="4500">4500 лв</option>
-                    <option value="5000">5000 лв</option>
-                    <option value="6000">6000 лв</option>
-                    <option value="7000">7000 лв</option>
-                    <option value="8000">8000 лв</option>
-                    <option value="9000">9000 лв</option>
-                    <option value="10000">10000 лв</option>
-                    <option value="">Over 10000 лв</option>
+                    <option>Цена</option>
+                    <option value="500">до 500 лв</option>
+                    <option value="1000">до 1000 лв</option>
+                    <option value="1500">до 1500 лв</option>
+                    <option value="2000">до 2000 лв</option>
+                    <option value="2500">до 2500 лв</option>
+                    <option value="3000">до 3000 лв</option>
+                    <option value="3500">до 3500 лв</option>
+                    <option value="4000">до 4000 лв</option>
+                    <option value="4500">до 4500 лв</option>
+                    <option value="5000">до 5000 лв</option>
+                    <option value="6000">до 6000 лв</option>
+                    <option value="7000">до 7000 лв</option>
+                    <option value="8000">до 8000 лв</option>
+                    <option value="9000">до 9000 лв</option>
+                    <option value="10000">до 10000 лв</option>
+                    <option value="">над 10000 лв</option>
                     </optgroup>
                 </select>
             </div>

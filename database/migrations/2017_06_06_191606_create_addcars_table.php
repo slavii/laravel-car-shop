@@ -15,8 +15,10 @@ class CreateAddcarsTable extends Migration
     {
         Schema::create('addcars', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('make');
-            $table->string('model');
+            $table->integer('make_id')->unsigned();
+            $table->foreign('make_id')->references('id')->on('makes');
+            $table->integer('model_id')->unsigned();
+            $table->foreign('model_id')->references('id')->on('models');
             $table->integer('year');
             $table->integer('price');
             $table->string('fuel');

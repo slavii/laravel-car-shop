@@ -44,7 +44,7 @@ $(document).ready(function () {
 
     $('#submit').on('click', function (e) {
 
-        $("#result").text('Поле -МАРКА- е задължително!');
+        $("#result").append('Поле -МАРКА- е задължително!');
         $("#result").removeClass('hidden');
 
         e.preventDefault();

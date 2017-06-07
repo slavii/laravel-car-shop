@@ -22,3 +22,7 @@ Route::post('/addcar', 'AddCarController@store');
 Route::post('/loadmodels', 'LoadModelsController@loadModels');
 
 Route::get('/findcar/{id}', 'DisplayImagesController@display');
+
+Route::get('/test1234', function(){
+    return view('carviews.test');
+});

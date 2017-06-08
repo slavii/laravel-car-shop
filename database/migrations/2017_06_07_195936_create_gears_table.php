@@ -15,7 +15,7 @@ class CreateGearsTable extends Migration
     {
         Schema::create('gears', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('gears');
+            $table->string('name');
         });
     }
 

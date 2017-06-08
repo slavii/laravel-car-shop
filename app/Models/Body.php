@@ -4,9 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Regions extends Model
+class Body extends Model
 {
-    protected $table = 'regions';
+    protected $table = 'bodies';
 
     public $timestamps = false;
+
 }

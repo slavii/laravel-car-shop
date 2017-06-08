@@ -2,18 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\make;
+use App\Services\CarMakeService;
+use App\Services\FuelService;
+use App\Services\GearService;
 
 class HomePageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    private $carMakeService;
+    private $fuelService;
+    private $gearService;
+
+    public function __construct(CarMakeService $cms, FuelService $fs, GearService $gs)
+    {
+        $this->carMakeService = $cms;
+        $this->fuelService = $fs;
+        $this->gearService = $gs;
+    }
+
     public function index()
     {
-        return view('welcome');
+        $carMakes = $this->carMakeService->getAll();
+        $fuels = $this->fuelService->getAll();
+        $gears = $this->gearService->getAll();
+        $array = [
+            'carMakes' => $carMakes,
+            'fuels' => $fuels,
+            'gears' => $gears
+        ];
+
+        return view('welcome',['array'=>$array]);
     }
 }

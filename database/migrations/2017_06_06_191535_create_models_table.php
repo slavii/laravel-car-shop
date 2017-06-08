@@ -13,11 +13,11 @@ class CreateModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('models', function (Blueprint $table) {
+        Schema::create('car_models', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('model');
-            $table->integer('make_id')->unsigned();
-            $table->foreign('make_id')->references('id')->on('makes');
+            $table->string('name');
+            $table->integer('car_make_id')->unsigned();
+            $table->foreign('car_make_id')->references('id')->on('car_makes');
         });
     }
 
@@ -28,6 +28,6 @@ class CreateModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('models');
+        Schema::dropIfExists('car_models');
     }
 }

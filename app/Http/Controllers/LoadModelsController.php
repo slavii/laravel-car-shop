@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Makes;
+use App\Services\CarModelService;
 
 class LoadModelsController extends Controller
 {
-    public function loadModels(Request $request)
+
+    private $carModelService;
+
+    public function __construct(CarModelService $carModelService)
     {
-        return json_encode(Makes::where('make', $request->make)->first()->models->pluck('models'));
+        $this->carModelService = $carModelService;
+    }
+
+    public function loadModels()
+    {
+        return $this->carModelService->getAll();
     }
 }

@@ -15,7 +15,7 @@ class CreateBodiesTable extends Migration
     {
         Schema::create('bodies', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('body');
+            $table->string('name');
         });
     }
 

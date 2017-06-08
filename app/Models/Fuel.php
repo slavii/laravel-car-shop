@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Images extends Model
+class Fuel extends Model
 {
-    protected $table = 'images';
+    protected $table = 'fuels';
 
     public $timestamps = false;
 }

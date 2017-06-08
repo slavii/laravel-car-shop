@@ -15,7 +15,7 @@ class CreateFuelsTable extends Migration
     {
         Schema::create('fuels', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('fuel');
+            $table->string('name');
         });
     }
 

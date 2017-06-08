@@ -6,332 +6,177 @@
 
 @section('body')
 
-    <script src="js/welcome.js"></script>
+    {{--TODO: Not working 'loadModels.js'!--}}
 
-    <div class="container">
+    <script src="js/loadModels.js"></script>
 
-        <div class="row">
+    <form class="form-horizontal" action="/findcar" method="post" enctype="multipart/form-data" id="form">
+        {{csrf_field()}}
 
-            <div class="col-lg-3">
+        <div class="container">
 
-                <h2 class="my-4">Търсене</h2>
-                <div class="list-group">
-                    <select class="list-group-item" name="Make" id="make">
-                        <option value="">Марка</option>
-                        <optgroup label="A"/>
-                        <option value="AC">AC</option>
-                        <option value="Acura">Acura</option>
-                        <option value="Aixam">Aixam</option>
-                        <option value="Alfa romeo">Alfa romeo</option>
-                        <option value="Aston martin">Aston martin</option>
-                        <option value="Audi">Audi</option>
-                        <option value="Austin">Austin</option>
-                        </optgroup>
+            <div class="row">
 
-                        <optgroup label="B">
-                            <option value="Bentley">Bentley</option>
-                            <option value="Berliner">Berliner</option>
-                            <option value="Bmw">Bmw</option>
-                            <option value="Borgward">Borgward</option>
-                            <option value="Brilliance">Brilliance</option>
-                            <option value="Bugatti">Bugatti</option>
-                            <option value="Buick">Buick</option>
-                        </optgroup>
+                <div class="col-lg-3">
 
-                        <optgroup label="C">
-                            <option value="Cadillac">Cadillac</option>
-                            <option value="Chevrolet">Chevrolet</option>
-                            <option value="Chrysler">Chrysler</option>
-                            <option value="Citroen">Citroen</option>
-                            <option value="Corvette">Corvette</option>
-                        </optgroup>
+                    <h2 class="my-4">Начална страница</h2>
+                    <div class="list-group">
+                        <select class="list-group-item" name="Make" id="make">
 
-                        <optgroup label="D">
-                            <option value="Dacia">Dacia</option>
-                            <option value="Daewoo">Daewoo</option>
-                            <option value="Daihatsu">Daihatsu</option>
-                            <option value="Daimler">Daimler</option>
-                            <option value="Datsun">Datsun</option>
-                            <option value="Dkw">Dkw</option>
-                            <option value="Dodge">Dodge</option>
-                            <option value="Dr">Dr</option>
-                        </optgroup>
+                            <option>Марка</option>
 
-                        <optgroup label="E">
-                            <option value="Eagle">Eagle</option>
-                        </optgroup>
+                            @foreach($array['carMakes'] as $carMake)
+                                <option value="{{$carMake->name}}">{{$carMake->name}}</option>
+                            @endforeach
 
-                        <optgroup label="F">
-                            <option value="FSO">FSO</option>
-                            <option value="Ferrari">Ferrari</option>
-                            <option value="Fiat">Fiat</option>
-                            <option value="Ford">Ford</option>
-                        </optgroup>
+                        </select>
 
-                        <optgroup label="G">
-                            <option value="Geo">Geo</option>
-                            <option value="Great Wall">Great Wall</option>
-                        </optgroup>
+                        <select class="list-group-item" name="Model" id="model" disabled></select>
 
-                        <optgroup label="H">
-                            <option value="Heinkel">Heinkel</option>
-                            <option value="Honda">Honda</option>
-                            <option value="Hyundai">Hyundai</option>
-                        </optgroup>
+                        <select class="list-group-item" name="Price" id="price">
+                            <option>Цена до</option>
 
-                        <optgroup label="I">
-                            <option value="Ifa">Ifa</option>
-                            <option value="Infiniti">Infiniti</option>
-                            <option value="Innocenti">Innocenti</option>
-                            <option value="Isuzu">Isuzu</option>
-                        </optgroup>
+                            @foreach (range(1000, 10000, 1000) as $price)
+                                <option value="{{$price}}">{{$price}}лв</option>
+                            @endforeach
 
-                        <optgroup label="J">
-                            <option value="Jaguar">Jaguar</option>
-                        </optgroup>
+                        </select>
 
-                        <optgroup label="K">
-                            <option value="Kia">Kia</option>
-                        </optgroup>
+                        <select class="list-group-item" name="Year" id="year">
+                            <option>Година от</option>
 
-                        <optgroup label="L">
-                            <option value="Lada">Lada</option>
-                            <option value="Lamborghini">Lamborghini</option>
-                            <option value="Lancia">Lancia</option>
-                            <option value="Lexus">Lexus</option>
-                            <option value="Lifan">Lifan</option>
-                            <option value="Lincoln">Lincoln</option>
-                            <option value="Lotus">Lotus</option>
-                        </optgroup>
+                            {{--TODO: Create Service to check for the oldest and the newest car!--}}
 
-                        <optgroup label="M">
-                            <option value="Maserati">Maserati</option>
-                            <option value="Matra">Matra</option>
-                            <option value="Maybach">Maybach</option>
-                            <option value="Mazda">Mazda</option>
-                            <option value="McLaren">McLaren</option>
-                            <option value="Mercedes">Mercedes</option>
-                            <option value="Mercury">Mercury</option>
-                            <option value="Mg">Mg</option>
-                            <option value="Mini">Mini</option>
-                            <option value="Mitsubishi">Mitsubishi</option>
-                            <option value="Morgan">Morgan</option>
-                            <option value="Moskvich">Moskvich</option>
-                        </optgroup>
+                            @foreach (range(date("Y"), 1900, -1) as $year)
+                                <option value="{{$year}}">{{$year}}</option>
+                            @endforeach
 
-                        <optgroup label="N">
-                            <option value="Nissan">Nissan</option>
-                        </optgroup>
+                        </select>
+                        <select class="list-group-item" name="Fuel" id="fuel">
 
-                        <optgroup label="O">
-                            <option value="Oldsmobile">Oldsmobile</option>
-                            <option value="Opel">Opel</option>
-                        </optgroup>
+                            <option>Двигател</option>
 
-                        <optgroup label="P">
-                            <option value="Perodua">Perodua</option>
-                            <option value="Peugeot">Peugeot</option>
-                            <option value="Pgo">Pgo</option>
-                            <option value="Plymouth">Plymouth</option>
-                            <option value="Polonez">Polonez</option>
-                            <option value="Pontiac">Pontiac</option>
-                            <option value="Porsche">Porsche</option>
-                            <option value="Proton">Proton</option>
-                        </optgroup>
+                            @foreach($array['fuels'] as $fuel)
+                                <option value="{{$fuel->name}}">{{$fuel->name}}</option>
+                            @endforeach
 
-                        <optgroup label="R">
-                            <option value="Renault">Renault</option>
-                            <option value="Rolls-Royce">Rolls-Royce</option>
-                            <option value="Rover">Rover</option>
-                        </optgroup>
+                        </select>
+                        <select class="list-group-item" name="Gears" id="gears">
 
-                        <optgroup label="S">
-                            <option value="SECMA">SECMA</option>
-                            <option value="Saab">Saab</option>
-                            <option value="Samand">Samand</option>
-                            <option value="Saturn">Saturn</option>
-                            <option value="Scion">Scion</option>
-                            <option value="Seat">Seat</option>
-                            <option value="Shatenet">Shatenet</option>
-                            <option value="Shuanghuan">Shuanghuan</option>
-                            <option value="Simca">Simca</option>
-                            <option value="Skoda">Skoda</option>
-                            <option value="Smart">Smart</option>
-                            <option value="Ssang yong">Ssang yong</option>
-                            <option value="Subaru">Subaru</option>
-                            <option value="Suzuki">Suzuki</option>
-                        </optgroup>
+                            <option>Скоростна кутия</option>
 
-                        <optgroup label="T">
-                            <option value="Talbot">Talbot</option>
-                            <option value="Tata">Tata</option>
-                            <option value="Tavria">Tavria</option>
-                            <option value="Tazzari">Tazzari</option>
-                            <option value="Terberg">Terberg</option>
-                            <option value="Tesla">Tesla</option>
-                            <option value="Tofas">Tofas</option>
-                            <option value="Toyota">Toyota</option>
-                            <option value="Trabant">Trabant</option>
-                            <option value="Triumph">Triumph</option>
-                        </optgroup>
+                            @foreach($array['gears'] as $gear)
+                                <option value="{{$gear->name}}">{{$gear->name}}</option>
+                            @endforeach
 
-                        <optgroup label="V">
-                            <option value="VROMOS">VROMOS</option>
-                            <option value="Volga">Volga</option>
-                            <option value="Volvo">Volvo</option>
-                            <option value="Vw">Vw</option>
-                        </optgroup>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="list-group button-list">
+                        <input type="button" class="list-group-item btn-primary" value="Търсене" name="Search"
+                               id="search">
+                        <a href="/findcar" class="list-group-item btn-secondary" name="Advenced-Search"
+                           id="advanced-search">Подробно търсене</a>
+                    </div>
 
-                        <optgroup label="W">
-                            <option value="Warszawa">Warszawa</option>
-                            <option value="Wartburg">Wartburg</option>
-                            <option value="Wiesmann">Wiesmann</option>
-                        </optgroup>
-
-                        <optgroup label="X">
-                            <option value="Xinshun">Xinshun</option>
-                        </optgroup>
-
-                        <optgroup label="Z">
-                            <option value="Zastava">Zastava</option>
-                            <option value="Zaz">Zaz</option>
-                        </optgroup>
-
-                        <optgroup label="Д">
-                            <option value="Други">Други</option>
-                        </optgroup>
-
-                        <optgroup label="П">
-                            <option value="Победа">Победа</option>
-                        </optgroup>
-
-                        <optgroup label="С">
-                            <option value="София">София</option>
-                        </optgroup>
-
-                        <optgroup label="Ч">
-                            <option value="Чайка">Чайка</option>
-                        </optgroup>
-                    </select>
-                    <select class="list-group-item" name="Model" id="model" disabled>
-                        <option>Модел</option>
-                        </optgroup>
-                    </select>
-                    <select class="list-group-item" name="Price" id="price">
-                        <option>Цена от</option>
-                    </select>
-                    <select class="list-group-item" name="Year" id="year">
-                        <option>Година от</option>
-                    </select>
-                    <select class="list-group-item" name="Fuel" id="fuel">
-                        <option>Двигател</option>
-                    </select>
-                    <select class="list-group-item" name="Gears" id="gears">
-                        <option>Скоростна кутия</option>
-                    </select>
                 </div>
-                <br>
-                <div class="list-group button-list">
-                    <input type="button" class="list-group-item btn-primary" value="Търсене" name="Search" id="search">
-                    <a href="/findcar" class="list-group-item btn-secondary" name="Advenced-Search" id="advanced-search">Подробно търсене</a>
+                <!-- /.col-lg-3 -->
+
+                <div class="col-lg-9">
+
+                    <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active">
+                                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                           data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                           data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top img-fluid" src="http://placehold.it/700x400"
+                                                 alt=""></a>
+                                <div class="card-block">
+                                    <h4 class="card-title"><a href="#">Item One</a></h4>
+                                    <h5>$24.99</h5>
+                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
+                                        numquam
+                                        aspernatur!</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top img-fluid" src="http://placehold.it/700x400"
+                                                 alt=""></a>
+                                <div class="card-block">
+                                    <h4 class="card-title"><a href="#">Item Two</a></h4>
+                                    <h5>$24.99</h5>
+                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
+                                        numquam
+                                        aspernatur! Lorem ipsum dolor sit amet.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top img-fluid" src="http://placehold.it/700x400"
+                                                 alt=""></a>
+                                <div class="card-block">
+                                    <h4 class="card-title"><a href="#">Item Three</a></h4>
+                                    <h5>$24.99</h5>
+                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
+                                        numquam
+                                        aspernatur!</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.row -->
+
                 </div>
+                <!-- /.col-lg-9 -->
 
             </div>
-            <!-- /.col-lg-3 -->
-
-            <div class="col-lg-9">
-
-                <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active">
-                            <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-
-                <div class="row">
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <a href="#"><img class="card-img-top img-fluid" src="http://placehold.it/700x400"
-                                             alt=""></a>
-                            <div class="card-block">
-                                <h4 class="card-title"><a href="#">Item One</a></h4>
-                                <h5>$24.99</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
-                                    numquam
-                                    aspernatur!</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <a href="#"><img class="card-img-top img-fluid" src="http://placehold.it/700x400"
-                                             alt=""></a>
-                            <div class="card-block">
-                                <h4 class="card-title"><a href="#">Item Two</a></h4>
-                                <h5>$24.99</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
-                                    numquam
-                                    aspernatur! Lorem ipsum dolor sit amet.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <a href="#"><img class="card-img-top img-fluid" src="http://placehold.it/700x400"
-                                             alt=""></a>
-                            <div class="card-block">
-                                <h4 class="card-title"><a href="#">Item Three</a></h4>
-                                <h5>$24.99</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
-                                    numquam
-                                    aspernatur!</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- /.row -->
-
-            </div>
-            <!-- /.col-lg-9 -->
+            <!-- /.row -->
 
         </div>
-        <!-- /.row -->
-
-    </div>
-
+    </form>
     {{--<div class="sc-content-container col-md-4 col-sm-12>--}}
     {{--<div class="row">--}}
     {{--<div class="col col-lg-2 col-lg-offset-1">--}}

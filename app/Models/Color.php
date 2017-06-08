@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Gears extends Model
+class Color extends Model
 {
-    protected $table = 'gears';
+    protected $table = 'colors';
 
     public $timestamps = false;
 }

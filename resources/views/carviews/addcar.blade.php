@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Sell Your Car')
-@section('addCarClass', 'active')
+@section('title', 'Публикувай обява')
+
+@section('sell-active', 'active')
 
 @section('body')
 
@@ -280,5 +281,7 @@
             {{--@endforeach--}}
         {{--</div>--}}
     {{--@endif--}}
+
+
 
 @endsection

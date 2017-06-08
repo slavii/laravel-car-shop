@@ -1,3 +1,7 @@
-.form-control {
-    margin-bottom: 7px;
+#search {
+    background-color: #0275d8;
+}
+
+#advanced-search {
+    background-color: rgba(0,0,0,0.09);
 }

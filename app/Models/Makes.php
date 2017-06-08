@@ -1,21 +1,17 @@
 <?php
 
-namespace App\Http\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Make extends Model
+class Makes extends Model
 {
-    protected $fillable = ['make'];
+    protected $table = 'makes';
+
     public $timestamps = false;
 
     public function models()
     {
         return $this->hasMany(Models::class);
-    }
-
-    public function findByMake($make)
-    {
-
     }
 }

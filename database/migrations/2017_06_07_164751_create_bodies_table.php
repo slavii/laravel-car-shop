@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddImagesrcToAddcars extends Migration
+class CreateBodiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddImagesrcToAddcars extends Migration
      */
     public function up()
     {
-        Schema::table('addcars', function($table) {
-            $table->string('images_src');
+        Schema::create('bodies', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('body');
         });
     }
 
@@ -25,8 +26,6 @@ class AddImagesrcToAddcars extends Migration
      */
     public function down()
     {
-        Schema::table('addcars', function($table) {
-            $table->dropColumn('images_src');
-        });
+        Schema::dropIfExists('bodies');
     }
 }

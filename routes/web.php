@@ -19,6 +19,8 @@ Route::get('/findcar/result', 'FindCarPageController@showResults');
 Route::get('/addcar', 'AddCarController@index');
 Route::post('/addcar', 'AddCarController@store');
 
+//Route::post('/loadmodels', 'LoadModelsController@loadModelsByMakeId');
+
 Route::post('/loadmodels', 'LoadModelsController@loadModels');
 
 Route::get('/findcar/{id}', 'DisplayImagesController@display');

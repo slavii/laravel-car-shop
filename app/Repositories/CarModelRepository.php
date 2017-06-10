@@ -18,6 +18,11 @@ class CarModelRepository
         return $this->model->find($id);
     }
 
+    public function findByMakeId($makeId)
+    {
+        return $this->model->where('car_make_id', $makeId)->get();
+    }
+
     public function getAll()
     {
         return $this->model->all();

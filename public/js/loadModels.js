@@ -1,44 +1,48 @@
 $(document).ready(function () {
 
-    $('#make').on('change', function () {
-        var make = $('#make').val();
-
-        // if (make == '') {
-        //     $("#model").html('');
-        //     $("#model").append("<option>" + 'Модел' + "</option>");
-        //     $('#model').prop("disabled", true);
-        //     return 0;
-        // }
-    });
-
     $.ajax({
         url: '/loadmodels',
         method: 'POST',
         data: {
-            'make': make,
             '_token': $('[name="_token"]').val()
         },
         success: function (response) {
 
-            alert('TEST');
+            var array = JSON.parse(response);
 
-            // $("#model").html('');
-            // $("#model").append("<option>" + 'Модел' + "</option>");
-            //
-            // var array = JSON.parse(response);
-            //
-            // if (array.length == 0) {
-            //     $('#model').prop("disabled", true);
-            //     return 0;
-            // }
-            //
-            // $('#model').prop("disabled", false);
-            //
-            // var appendData = [];
-            // for (var i = 0; i < array.length; i++) {
-            //     appendData += "<option value = '" + array[i] + "', class = 'newitem'>" + array[i] + " </option>";
-            // }
-            // $("#model").append(appendData);
+            localStorage.setItem('models', JSON.stringify(array));
         }
     });
+
+    $('#make').on('change', function () {
+        var makeId = $('#make').val();
+
+        updateModels(makeId);
+    });
 });
+
+function updateModels(makeId) {
+    if (makeId == '') {
+        $('#model').prop("disabled", true);
+        return 0;
+    }
+
+    var models = JSON.parse(localStorage.getItem('models'));
+    var selectedModels = [];
+
+    for (var i = 0; i < models.length; i++) {
+        if (makeId == models[i].car_make_id) {
+            selectedModels.push(models[i].name);
+        }
+    }
+
+    $('#model').prop("disabled", false);
+    $("#model").html('');
+    $("#model").append("<option>" + 'Модел' + "</option>");
+
+    var appendData = [];
+    for (i = 0; i < selectedModels.length; i++) {
+        appendData += "<option value = '" + selectedModels[i] + "', class = 'newitem'>" + selectedModels[i] + " </option>";
+    }
+    $("#model").append(appendData);
+}

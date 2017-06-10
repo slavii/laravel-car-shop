@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\CarModelService;
+use Illuminate\Http\Request;
 
 class LoadModelsController extends Controller
 {
@@ -16,6 +17,11 @@ class LoadModelsController extends Controller
 
     public function loadModels()
     {
-        return $this->carModelService->getAll();
+        return json_encode($this->carModelService->getAll());
     }
+
+//    public function loadModelsByMakeId(Request $request)
+//    {
+//        return json_encode($this->carModelService->findByMakeId($request->input('makeId')));
+//    }
 }

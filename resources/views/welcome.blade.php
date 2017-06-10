@@ -6,8 +6,6 @@
 
 @section('body')
 
-    {{--TODO: Not working 'loadModels.js'!--}}
-
     <script src="js/loadModels.js"></script>
 
     <form class="form-horizontal" action="/findcar" method="post" enctype="multipart/form-data" id="form">
@@ -23,15 +21,17 @@
                     <div class="list-group">
                         <select class="list-group-item" name="Make" id="make">
 
-                            <option>Марка</option>
+                            <option value="">Марка</option>
 
                             @foreach($array['carMakes'] as $carMake)
-                                <option value="{{$carMake->name}}">{{$carMake->name}}</option>
+                                <option value="{{$carMake->id}}">{{$carMake->name}}</option>
                             @endforeach
 
                         </select>
 
-                        <select class="list-group-item" name="Model" id="model" disabled></select>
+                        <select class="list-group-item" name="Model" id="model" disabled>
+                            <option value="">Модел</option>
+                        </select>
 
                         <select class="list-group-item" name="Price" id="price">
                             <option>Цена до</option>
@@ -43,7 +43,7 @@
                         </select>
 
                         <select class="list-group-item" name="Year" id="year">
-                            <option>Година от</option>
+                            <option value="">Година от</option>
 
                             {{--TODO: Create Service to check for the oldest and the newest car!--}}
 
@@ -54,7 +54,7 @@
                         </select>
                         <select class="list-group-item" name="Fuel" id="fuel">
 
-                            <option>Двигател</option>
+                            <option value="">Двигател</option>
 
                             @foreach($array['fuels'] as $fuel)
                                 <option value="{{$fuel->name}}">{{$fuel->name}}</option>
@@ -63,7 +63,7 @@
                         </select>
                         <select class="list-group-item" name="Gears" id="gears">
 
-                            <option>Скоростна кутия</option>
+                            <option value="">Скоростна кутия</option>
 
                             @foreach($array['gears'] as $gear)
                                 <option value="{{$gear->name}}">{{$gear->name}}</option>

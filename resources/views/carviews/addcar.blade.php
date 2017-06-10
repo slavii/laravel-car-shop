@@ -33,7 +33,7 @@
 
                         <select class="form-control" name="Make" id="make">
 
-                            <option value="">Марка</option>
+                            <option class="my-class" value="">Марка</option>
 
                             @foreach($array['carMakes'] as $carMake)
                                 <option value="{{$carMake->id}}">{{$carMake->name}}</option>
@@ -105,7 +105,7 @@
                             <option value="">Цвят</option>
 
                             @foreach($array['colors'] as $color)
-                                <option value="{{$color->id}}">{{$color->color}}</option>
+                                <option value="{{$color->id}}">{{$color->name}}</option>
                             @endforeach
 
                         </select>

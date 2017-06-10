@@ -18,8 +18,8 @@ class FuelService
         return $this->fuelRepository->findById($id);
     }
 
-    public function getAll()
+    public function findAll()
     {
-        return $this->fuelRepository->getAll();
+        return $this->fuelRepository->findAll();
     }
 }

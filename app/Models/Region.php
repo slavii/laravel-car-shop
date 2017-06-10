@@ -9,4 +9,6 @@ class Region extends Model
     protected $table = 'regions';
 
     public $timestamps = false;
+
+    protected $fillable = ['name'];
 }

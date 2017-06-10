@@ -6,25 +6,14 @@ use App\Services\CarMakeService;
 use App\Services\FuelService;
 use App\Services\GearService;
 
-class HomePageController extends Controller
+class HomePageController extends BaseController
 {
-
-    private $carMakeService;
-    private $fuelService;
-    private $gearService;
-
-    public function __construct(CarMakeService $cms, FuelService $fs, GearService $gs)
-    {
-        $this->carMakeService = $cms;
-        $this->fuelService = $fs;
-        $this->gearService = $gs;
-    }
 
     public function index()
     {
-        $carMakes = $this->carMakeService->getAll();
-        $fuels = $this->fuelService->getAll();
-        $gears = $this->gearService->getAll();
+        $carMakes = $this->carMakeService->findAll();
+        $fuels = $this->fuelService->findAll();
+        $gears = $this->gearService->findAll();
         $array = [
             'carMakes' => $carMakes,
             'fuels' => $fuels,

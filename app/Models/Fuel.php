@@ -9,4 +9,6 @@ class Fuel extends Model
     protected $table = 'fuels';
 
     public $timestamps = false;
+
+    protected $fillable = ['name'];
 }

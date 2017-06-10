@@ -18,7 +18,7 @@ class FuelRepository
         return $this->fuel->find($id);
     }
 
-    public function getAll()
+    public function findAll()
     {
         return $this->fuel->all();
     }

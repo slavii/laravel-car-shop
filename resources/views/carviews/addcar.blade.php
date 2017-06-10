@@ -6,9 +6,9 @@
 
 @section('body')
 
-    <script src="js/addcar.js"></script>
+    <script src="js/loadmodels.js"></script>
 
-    <link rel="stylesheet" href="/css/addcar.css">
+    <link rel="stylesheet" href="css/addcar.css">
 
     <div class="container">
 
@@ -32,45 +32,95 @@
                     <div class="list-group">
 
                         <select class="form-control" name="Make" id="make">
+
                             <option value="">Марка</option>
+
+                            @foreach($array['carMakes'] as $carMake)
+                                <option value="{{$carMake->id}}">{{$carMake->name}}</option>
+                            @endforeach
+
                         </select>
 
-                        <select class="form-control" name="Model" id="model">
+                        <select class="form-control" name="Model" id="model" disabled>
                             <option value="">Модел</option>
                         </select>
 
                         <select class="form-control" name="Condition" id="condition">
+
                             <option value="">Състояние</option>
+
+                            @foreach($array['conditions'] as $condition)
+                                <option value="{{$condition->id}}">{{$condition->name}}</option>
+                            @endforeach
+
                         </select>
 
-                        <input type="number" step="100" class="form-control" name="Price" id="price" placeholder="Цена">
+                        <input type="number" class="form-control" name="Price" id="price" placeholder="Цена">
 
                         <select class="form-control" name="Year" id="year">
+
                             <option value="">Година</option>
+
+                            @foreach (range(date("Y"), 1900, -1) as $year)
+                                <option value="{{$year}}">{{$year}}</option>
+                            @endforeach
+
                         </select>
 
                         <select class="form-control" name="Fuel" id="fuel">
+
                             <option value="">Двигател</option>
+
+                            @foreach($array['fuels'] as $fuel)
+                                <option value="{{$fuel->id}}">{{$fuel->name}}</option>
+                            @endforeach
+
                         </select>
 
-                        <input type="number" step="100" class="form-control" name="Power" id="power" placeholder="Мощност">
+                        <input type="number" step="100" class="form-control" name="Power" id="power"
+                               placeholder="Мощност">
 
                         <select class="form-control" name="Gears" id="gears">
+
                             <option value="">Скоростна кутия</option>
+
+                            @foreach($array['gears'] as $gear)
+                                <option value="{{$gear->id}}">{{$gear->name}}</option>
+                            @endforeach
+
                         </select>
 
                         <select class="form-control" name="Body" id="body">
+
                             <option value="">Категория</option>
+
+                            @foreach($array['bodies'] as $body)
+                                <option value="{{$body->id}}">{{$body->name}}</option>
+                            @endforeach
+
                         </select>
 
                         <select class="form-control" name="Color" id="color">
+
                             <option value="">Цвят</option>
+
+                            @foreach($array['colors'] as $color)
+                                <option value="{{$color->id}}">{{$color->color}}</option>
+                            @endforeach
+
                         </select>
 
-                        <input type="number" step="100" class="form-control" name="Mileage" id="mileage" placeholder="Пробег">
+                        <input type="number" step="100" class="form-control" name="Mileage" id="mileage"
+                               placeholder="Пробег">
 
                         <select class="form-control" name="Region" id="region">
+
                             <option value="">Област</option>
+
+                            @foreach($array['regions'] as $region)
+                                <option value="{{$region->id}}">{{$region->name}}</option>
+                            @endforeach
+
                         </select>
 
                     </div>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\CarModelService;
 use Illuminate\Http\Request;
 
-class LoadModelsController extends Controller
+class LoadModelsController extends BaseController
 {
 
     private $carModelService;
@@ -17,7 +17,7 @@ class LoadModelsController extends Controller
 
     public function loadModels()
     {
-        return json_encode($this->carModelService->getAll());
+        return json_encode($this->carModelService->findAll());
     }
 
 //    public function loadModelsByMakeId(Request $request)

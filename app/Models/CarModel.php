@@ -10,6 +10,8 @@ class CarModel extends Model
 
     public $timestamps = false;
 
+    protected $fillable = ['name', 'car_make_id'];
+
     public function car_makes()
     {
         return $this->belongsTo(CarMake::class);

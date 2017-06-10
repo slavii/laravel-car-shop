@@ -18,8 +18,8 @@ class GearService
         return $this->gearRepository->findById($id);
     }
 
-    public function getAll()
+    public function findAll()
     {
-        return $this->gearRepository->getAll();
+        return $this->gearRepository->findAll();
     }
 }

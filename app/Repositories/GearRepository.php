@@ -18,7 +18,7 @@ class GearRepository
         return $this->gear->find($id);
     }
 
-    public function getAll()
+    public function findAll()
     {
         return $this->gear->all();
     }

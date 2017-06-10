@@ -9,4 +9,6 @@ class Condition extends Model
     protected $table = 'conditions';
 
     public $timestamps = false;
+
+    protected $fillable = ['name'];
 }

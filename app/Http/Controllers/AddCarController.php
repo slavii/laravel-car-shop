@@ -2,20 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\CarMakeService;
+use App\Services\FuelService;
+use App\Services\GearService;
 use Illuminate\Http\Request;
-use App\Http\Models\Addcar;
-use Illuminate\Support\Facades\Storage;
 
-class AddCarController extends Controller
+class AddCarController extends BaseController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('carviews.addcar');
+        $carMakes = $this->carMakeService->findAll();
+        $fuels = $this->fuelService->findAll();
+        $gears = $this->gearService->findAll();
+        $conditions = $this->conditionService->findAll();
+        $bodies = $this->bodyService->findAll();
+        $colors = $this->colorService->findAll();
+        $regions = $this->regionService->findAll();
+
+        $array = [
+            'carMakes' => $carMakes,
+            'fuels' => $fuels,
+            'gears' => $gears,
+            'conditions' => $conditions,
+            'bodies' => $bodies,
+            'colors' => $colors,
+            'regions' => $regions
+        ];
+
+        return view('carviews.addcar',['array'=>$array]);
     }
 
     /**

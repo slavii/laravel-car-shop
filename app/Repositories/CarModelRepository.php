@@ -23,7 +23,7 @@ class CarModelRepository
         return $this->model->where('car_make_id', $makeId)->get();
     }
 
-    public function getAll()
+    public function findAll()
     {
         return $this->model->all();
     }

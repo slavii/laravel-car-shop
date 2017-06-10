@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Models\Addcar;
 
-class DisplayImagesController extends Controller
+class DisplayImagesController extends BaseController
 {
     public function display($id)
     {

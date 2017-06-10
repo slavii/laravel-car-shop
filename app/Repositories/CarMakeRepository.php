@@ -18,7 +18,7 @@ class CarMakeRepository
         return $this->make->find($id);
     }
 
-    public function getAll()
+    public function findAll()
     {
         return $this->make->all();
     }

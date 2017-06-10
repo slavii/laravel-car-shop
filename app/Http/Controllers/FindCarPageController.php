@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class FindCarPageController extends Controller
+class FindCarPageController extends BaseController
 {
     /**
      * Display a listing of the resource.

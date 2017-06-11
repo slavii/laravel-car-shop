@@ -11,6 +11,8 @@
 
     <link rel="stylesheet" href="css/addcar.css">
 
+    
+
     <div class="container">
 
         <form class="form-horizontal" action="/addcar" method="post" enctype="multipart/form-data" id="form">
@@ -161,10 +163,12 @@
 
                         <h4 class="">Прикачване на снимки</h4>
 
+                        <input type="file" name="file[]" id="file" multiple>
+
                     </div>
 
                 </div>
-                
+
             </div>
 
         </form>

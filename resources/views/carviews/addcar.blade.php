@@ -11,7 +11,17 @@
 
     <link rel="stylesheet" href="css/addcar.css">
 
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://www.expertphp.in/js/jquery.form.js"></script>
+    <script>
+        function preview_images() {
+            var total_file = document.getElementById("images").files.length;
+            for (var i = 0; i < total_file; i++) {
+                $('#image_preview').append("<div class='col-md-4 form-control'><img class='img-responsive' style='max-width: 100%' src='" + URL.createObjectURL(event.target.files[i]) + "'></div>");
+            }
+        }
+    </script>
 
     <div class="container">
 
@@ -157,17 +167,25 @@
 
                 </div>
 
-                <div class="col-lg-3">
+                <div class="col-lg-4">
 
-                    <div class="panel panel-default">
 
-                        <h4 class="">Прикачване на снимки</h4>
+                    <h4 class="">Прикачване на снимки</h4>
 
-                        <input type="file" name="file[]" id="file" multiple>
+                    <form action="multiupload.php" method="post" enctype="multipart/form-data">
 
-                    </div>
+                        <input type="file" class="form-control" id="images" name="images[]"
+                               onchange="preview_images();" multiple/>
+
+                        <div class="row" id="image_preview"></div>
+
+                        <input type="submit" class="btn btn-primary form-control" name='submit_image'
+                               value="Качване на снимките"/>
+
+                    </form>
 
                 </div>
+
 
             </div>
 

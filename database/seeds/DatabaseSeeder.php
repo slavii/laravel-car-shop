@@ -19,5 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FuelsSeeder::class);;
         $this->call(GearsSeeder::class);;
         $this->call(RegionsSeeder::class);
+        $this->call(EquipmentsSeeder::class);
+        $this->call(DoorsSeeder::class);
     }
 }

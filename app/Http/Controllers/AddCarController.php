@@ -18,6 +18,8 @@ class AddCarController extends BaseController
         $bodies = $this->bodyService->findAll();
         $colors = $this->colorService->findAll();
         $regions = $this->regionService->findAll();
+        $equipments = $this->equipmentService->findAll();
+        $doors = $this->doorService->findAll();
 
         $array = [
             'carMakes' => $carMakes,
@@ -26,7 +28,9 @@ class AddCarController extends BaseController
             'conditions' => $conditions,
             'bodies' => $bodies,
             'colors' => $colors,
-            'regions' => $regions
+            'regions' => $regions,
+            'equipments' => $equipments,
+            'doors' => $doors
         ];
 
         return view('carviews.addcar',['array'=>$array]);

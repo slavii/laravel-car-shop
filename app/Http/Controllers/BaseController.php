@@ -6,6 +6,8 @@ use App\Services\BodyService;
 use App\Services\CarMakeService;
 use App\Services\ColorService;
 use App\Services\ConditionService;
+use App\Services\DoorService;
+use App\Services\EquipmentService;
 use App\Services\FuelService;
 use App\Services\GearService;
 use App\Services\RegionService;
@@ -26,6 +28,8 @@ class BaseController extends Controller
     protected $bodyService;
     protected $colorService;
     protected $regionService;
+    protected $equipmentService;
+    protected $doorService;
 
     public function __construct(CarMakeService $cms,
                                 FuelService $fs,
@@ -33,7 +37,9 @@ class BaseController extends Controller
                                 ConditionService $cs,
                                 BodyService $bs,
                                 ColorService $cols,
-                                RegionService $rs)
+                                RegionService $rs,
+                                EquipmentService $es,
+                                DoorService $ds)
     {
         $this->carMakeService = $cms;
         $this->fuelService = $fs;
@@ -42,5 +48,7 @@ class BaseController extends Controller
         $this->bodyService = $bs;
         $this->colorService = $cols;
         $this->regionService = $rs;
+        $this->equipmentService = $es;
+        $this->doorService = $ds;
     }
 }

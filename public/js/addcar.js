@@ -1,46 +1,34 @@
 $(document).ready(function () {
-    setYears();
 
-    $('#make').on('change', function () {
-        var make = $('#make').val();
-
-        if (make == '') {
-            $("#model").html('');
-            $("#model").append("<option>" + 'Модел' + "</option>");
-            $('#model').prop("disabled", true);
-            return 0;
-        }
-
-
-        $.ajax({
-            url: '/loadmodels',
-            method: 'POST',
-            data: {
-                'make': make,
-                '_token': $('[name="_token"]').val()
-            },
-            success: function (response) {
-
-                $("#model").html('');
-                $("#model").append("<option>" + 'Модел' + "</option>");
-
-                var array = JSON.parse(response);
-
-                if (array.length == 0) {
-                    $('#model').prop("disabled", true);
-                    return 0;
-                }
-
-                $('#model').prop("disabled", false);
-
-                var appendData = [];
-                for (var i = 0; i < array.length; i++) {
-                    appendData += "<option value = '" + array[i] + "', class = 'newitem'>" + array[i] + " </option>";
-                }
-                $("#model").append(appendData);
-            }
-        });
-    });
+    //     $.ajax({
+    //         url: '/loadmodels',
+    //         method: 'POST',
+    //         data: {
+    //             'make': make,
+    //             '_token': $('[name="_token"]').val()
+    //         },
+    //         success: function (response) {
+    //
+    //             $("#model").html('');
+    //             $("#model").append("<option>" + 'Модел' + "</option>");
+    //
+    //             var array = JSON.parse(response);
+    //
+    //             if (array.length == 0) {
+    //                 $('#model').prop("disabled", true);
+    //                 return 0;
+    //             }
+    //
+    //             $('#model').prop("disabled", false);
+    //
+    //             var appendData = [];
+    //             for (var i = 0; i < array.length; i++) {
+    //                 appendData += "<option value = '" + array[i] + "', class = 'newitem'>" + array[i] + " </option>";
+    //             }
+    //             $("#model").append(appendData);
+    //         }
+    //     });
+    // });
 
     $('#submit').on('click', function (e) {
 
@@ -64,11 +52,15 @@ function transferComplete(data) {
     console.log(data.currentTarget.response);
 }
 
-function setYears(){
-    var currentTime = new Date();
-    var year = currentTime.getFullYear();
+window.onmousedown = function (e) {
+    var el = e.target;
+    if (el.tagName.toLowerCase() == 'option' && el.parentNode.hasAttribute('multiple')) {
+        e.preventDefault();
 
-    for (var i = year; i >= 1900; i--) {
-        $("#year").append("<option value='" + i + "'>" + i + "</option>");
+        if (el.hasAttribute('selected')) el.removeAttribute('selected');
+        else el.setAttribute('selected', '');
+
+        var select = el.parentNode.cloneNode(true);
+        el.parentNode.parentNode.replaceChild(select, el.parentNode);
     }
 }

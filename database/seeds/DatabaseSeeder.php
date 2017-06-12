@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
 //        $this->call(RegionsSeeder::class);
 //        $this->call(EquipmentsSeeder::class);
 //        $this->call(DoorsSeeder::class);
+//        $this->call(ImagesSeeder::class);
+//        $this->call(UsersSeeder::class);
         $this->call(CarsSeeder::class);
     }
 }

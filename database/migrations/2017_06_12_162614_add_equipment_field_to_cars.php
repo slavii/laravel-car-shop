@@ -14,8 +14,8 @@ class AddEquipmentFieldToCars extends Migration
     public function up()
     {
         Schema::table('cars', function (Blueprint $table) {
-            $table->integer('equipment_id')->unsigned();
-            $table->foreign('equipment_id_id')->references('id')->on('equipments');
+            $table->integer('car_equipment_id')->unsigned();
+            $table->foreign('car_equipment_id')->references('id')->on('equipments');
         });
     }
 
@@ -27,7 +27,7 @@ class AddEquipmentFieldToCars extends Migration
     public function down()
     {
         Schema::table('cars', function ($table) {
-            $table->dropColumn('equipment_id');
+            $table->dropColumn('car_equipment_id');
         });
     }
 }

@@ -38,7 +38,7 @@ function updateModels(makeId) {
 
     $('#model').prop("disabled", false);
     $("#model").html('');
-    $("#model").append("<option>" + 'Модел' + "</option>");
+    $("#model").append("<option value=''>" + 'Модел' + "</option>");
 
     var appendData = [];
     for (i = 0; i < selectedModels.length; i++) {

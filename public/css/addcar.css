@@ -2,6 +2,10 @@
     margin-bottom: 10px;
 }
 
+#price, #power, #mileage {
+    padding-left: 16px;
+}
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -59,6 +63,27 @@ input[type="number"] {
     background: inherit;
     left: 20px;
 }
+
+#result {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+#reset {
+    color: white;
+    background-color: rgba(218, 22, 0, 0.39);
+}
+
+/*#image_preview {*/
+/*width: 95%;*/
+/*height: 350px;*/
+/*border: 2px dashed #92ff61;*/
+/*margin-bottom: 10px;*/
+/*margin-left: 10px;*/
+/*}*/
 
 /*-------------------------------------*/
 

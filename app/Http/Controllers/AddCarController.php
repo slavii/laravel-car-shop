@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\CarMakeService;
-use App\Services\FuelService;
-use App\Services\GearService;
+use App\Models\Car;
 use Illuminate\Http\Request;
 
 class AddCarController extends BaseController
@@ -36,15 +34,9 @@ class AddCarController extends BaseController
         return view('carviews.addcar',['array'=>$array]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        $car = new Addcar();
+        $car = new Car();
 
         $this->validate($request, [
             'make' => 'required',
@@ -81,7 +73,6 @@ class AddCarController extends BaseController
         $car->images_src = substr($imgSrcs, 0, -1);
         $car->save();
 
-        echo "Успешен запис!";
         return redirect('/');
     }
 }

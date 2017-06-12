@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddDoorFieldToCars extends Migration
+class AddEquipmentFieldToCars extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,8 @@ class AddDoorFieldToCars extends Migration
     public function up()
     {
         Schema::table('cars', function (Blueprint $table) {
-            $table->integer('door_id')->unsigned();
-            $table->foreign('door_id')->references('id')->on('doors');
+            $table->integer('equipment_id')->unsigned();
+            $table->foreign('equipment_id_id')->references('id')->on('equipments');
         });
     }
 
@@ -27,7 +27,7 @@ class AddDoorFieldToCars extends Migration
     public function down()
     {
         Schema::table('cars', function ($table) {
-            $table->dropColumn('door_id');
+            $table->dropColumn('equipment_id');
         });
     }
 }

@@ -32,5 +32,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Services\CarMakesService', function () {
             return new CarMakeService(new CarMakeRepository(new CarMake()));
         });
+
+
     }
 }

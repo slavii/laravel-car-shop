@@ -36,36 +36,53 @@ class AddCarController extends BaseController
 
     public function store(Request $request)
     {
-        $validateMake = $this->carService->validateMake();
+        $validateFields = $this->carService->validateFields();
 
-        $car = new Car();
-
-        $car->make = $request->make;
-        $car->model = $request->model;
-        $car->year = $request->year;
-        $car->price = $request->price;
-        $car->fuel = $request->fuel;
-        $car->power = $request->power;
-        $car->condition = $request->condition;
-        $images = $request->file('images');
-
-        if (empty($images)) {
-            echo "Няма избрани изображения!";
-            return 0;
+        if (!$validateFields) {
+            return;
         }
 
-        $imgSrcs = '';
+        $carData = [
+            'car_make_id' => $request->Make,
+            'car_model_id' => $request->Model,
+            'condition_id' => $request->Condition,
+            'price' => $request->Price,
+            'year' => $request->Year,
+            'fuel_id' => $request->Fuel,
+            'power' => $request->Power,
+            'gears_id' => $request->Gears,
+            'body_id' => $request->Body,
+            'color_id' => $request->Color,
+            'mileage' => $request->Mileage,
+            'region_id' => $request->Region,
+            'door_id' => $request->Doors,
 
-        foreach ($images as $image) {
-            $extension = $image->getClientOriginalExtension();
-            $fileName = str_shuffle(md5(date('Y-m-d\TH:i:s.u'))) . '.' . $extension;
-            $image->move(public_path() . '\assets\images', $fileName);
-            $imgSrcs .= $fileName . ',';
-        }
+            'image_id' => 1,
+            'user_id' => 1,
+            'car_equipment_id' => 1
+        ];
 
-        $car->images_src = substr($imgSrcs, 0, -1);
+        $this->carService->create($carData);
+
+//        $images = $request->file('images');
+//
+//        if (empty($images)) {
+//            echo "Няма избрани изображения!";
+//            return 0;
+//        }
+//
+//        $imgSrcs = '';
+//
+//        foreach ($images as $image) {
+//            $extension = $image->getClientOriginalExtension();
+//            $fileName = str_shuffle(md5(date('Y-m-d\TH:i:s.u'))) . '.' . $extension;
+//            $image->move(public_path() . '\assets\images', $fileName);
+//            $imgSrcs .= $fileName . ',';
+//        }
+//
+//        $car->images_src = substr($imgSrcs, 0, -1);
 //        $car->save();
-
-        return redirect('/');
+//
+//        return redirect('/');
     }
 }

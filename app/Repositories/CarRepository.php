@@ -23,4 +23,9 @@ class CarRepository
         return $this->car->all();
     }
 
+    public function create($data)
+    {
+        return $this->car->create($data);
+    }
+
 }

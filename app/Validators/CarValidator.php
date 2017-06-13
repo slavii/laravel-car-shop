@@ -14,13 +14,28 @@ class CarValidator
         $this->carValidators = $request;
     }
 
-    public function validateMake()
+    public function validateFields()
     {
-        if ($this->carValidators['make'] != integerValue())
-        {
-            return 0;
-        }
+        $carFields = [
+            $this->carValidators['Make'],
+            $this->carValidators['Model'],
+            $this->carValidators['Condition'],
+            $this->carValidators['Price'],
+            $this->carValidators['Year'],
+            $this->carValidators['Fuel'],
+            $this->carValidators['Power'],
+            $this->carValidators['Gears'],
+            $this->carValidators['Body'],
+            $this->carValidators['Color'],
+            $this->carValidators['Mileage'],
+            $this->carValidators['Region'],
+            $this->carValidators['Doors']
+        ];
 
-        return 1;
+        foreach ($carFields as $carField) {
+            if ($carField != integerValue()) {
+                return 0;
+            }
+        }
     }
 }

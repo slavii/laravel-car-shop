@@ -32,7 +32,7 @@ function updateModels(makeId) {
 
     for (var i = 0; i < models.length; i++) {
         if (makeId == models[i].car_make_id) {
-            selectedModels.push(models[i].name);
+            selectedModels.push(models[i]);
         }
     }
 
@@ -42,7 +42,7 @@ function updateModels(makeId) {
 
     var appendData = [];
     for (i = 0; i < selectedModels.length; i++) {
-        appendData += "<option value = '" + selectedModels[i] + "', class = 'newitem'>" + selectedModels[i] + " </option>";
+        appendData += "<option value = '" + selectedModels[i].id + "', class = 'newitem'>" + selectedModels[i].name + " </option>";
     }
     $("#model").append(appendData);
 }

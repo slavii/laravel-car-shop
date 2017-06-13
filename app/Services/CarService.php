@@ -26,9 +26,14 @@ class CarService
         return $this->carRepository->findAll();
     }
 
-    public function validateMake()
+    public function validateFields()
     {
-        return $this->carValidator->validateMake();
+        return $this->carValidator->validateFields();
+    }
+
+    public function create($data)
+    {
+        return $this->carRepository->create($data);
     }
 
 }

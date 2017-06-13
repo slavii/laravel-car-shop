@@ -14,7 +14,7 @@ class CarValidator
         $this->carValidators = $request;
     }
 
-    public function checkMake()
+    public function validateMake()
     {
         if ($this->carValidators['make'] != integerValue())
         {

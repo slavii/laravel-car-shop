@@ -17,14 +17,14 @@
 
     <div class="container">
 
-        <form class="form-horizontal" action="/addcar" method="post" enctype="multipart/form-data" id="form">
+        <form class="form-horizontal" action="/findcar" method="post" enctype="multipart/form-data" id="form">
             {{csrf_field()}}
 
             <div class="row">
 
                 <div class="col-lg-6">
 
-                    <h2 class="my-4">Публикуване на обява</h2>
+                    <h2 class="my-4">Търсене на обява</h2>
 
                 </div>
 
@@ -144,8 +144,22 @@
 
                         </select>
 
-                        <input type="number" step="100" class="form-control" name="Mileage" id="mileage"
-                               placeholder="Пробег">
+                        <div class="row">
+
+                            <div class="col-lg-6">
+
+                                <input type="number" class="form-control" name="MileageFrom" id="mileage-from"
+                                       placeholder="Пробег от">
+                            </div>
+
+                            <div class="col-lg-6">
+
+                                <input type="number" class="form-control" name="MileageTo" id="mileage-to"
+                                       placeholder="Пробег до">
+
+                            </div>
+
+                        </div>
 
                         <select class="form-control" name="Region" id="region">
 
@@ -190,21 +204,27 @@
 
                 <div class="col-lg-4">
 
+                    <label for="sort-by" style="font-weight: bold; font-size: 18px;">
 
-                    <h4 class="">Прикачване на снимки</h4>
+                        Сортиране по
 
-                    <input type="file" class="form-control" id="images" name="images[]"
-                           onchange="preview_images();" multiple/>
+                    </label>
 
-                    <div class="row" id="image_preview"></div>
+                    <select class="form-control" name="SortBy" id="sort-by">
+                        <option value="1">Цена - възходящо</option>
+                        <option value="2">Цена - низходящо</option>
+                        <option value="3">Най-новите обяви</option>
+                        <option value="4">Година на производство - възходящо</option>
+                        <option value="5">Година на производство - възходящо</option>
+                        <option value="6">Пробег - възходящо</option>
+                        <option value="7">Пробег - низходящо</option>
+                        <option value="8">Мощност - възходящо</option>
+                        <option value="9">Мощност - низходящо</option>
 
-                    <input type="submit" class="btn btn-primary form-control" name='submit_image'
-                           value="Качване на снимките"/>
+                    </select>
 
                     <input type="submit" class="button btn-success form-control" name="submit" id="submit"
-                           value="Публикуване на обява">
-
-                    <div class="form-control alert-danger hidden" id="result"></div>
+                           value="Търсене">
 
                     <input type="reset" class="button form-control" name="Reset" id="reset"
                            value="Изчистване">

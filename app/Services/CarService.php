@@ -26,5 +26,9 @@ class CarService
         return $this->carRepository->findAll();
     }
 
+    public function validateMake()
+    {
+        return $this->carValidator->validateMake();
+    }
 
 }

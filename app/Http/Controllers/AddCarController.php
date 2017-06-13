@@ -31,21 +31,14 @@ class AddCarController extends BaseController
             'doors' => $doors
         ];
 
-        return view('carviews.addcar',['array'=>$array]);
+        return view('carviews.addcar', ['array' => $array]);
     }
 
     public function store(Request $request)
     {
-        $car = new Car();
+        $validateMake = $this->carService->validateMake();
 
-        $this->validate($request, [
-            'make' => 'required',
-            'model' => 'required',
-            'year' => 'required',
-            'price' => 'required',
-            'fuel' => 'required',
-            'power' => 'required'
-        ]);
+        $car = new Car();
 
         $car->make = $request->make;
         $car->model = $request->model;
@@ -54,24 +47,24 @@ class AddCarController extends BaseController
         $car->fuel = $request->fuel;
         $car->power = $request->power;
         $car->condition = $request->condition;
-        $files = $request->file('file');
+        $images = $request->file('images');
 
-        if (empty($files)) {
+        if (empty($images)) {
             echo "Няма избрани изображения!";
             return 0;
         }
 
         $imgSrcs = '';
 
-        foreach ($files as $file) {
-            $extension = $file->getClientOriginalExtension();
+        foreach ($images as $image) {
+            $extension = $image->getClientOriginalExtension();
             $fileName = str_shuffle(md5(date('Y-m-d\TH:i:s.u'))) . '.' . $extension;
-            $file->move(public_path() . '\assets\images', $fileName);
+            $image->move(public_path() . '\assets\images', $fileName);
             $imgSrcs .= $fileName . ',';
         }
 
         $car->images_src = substr($imgSrcs, 0, -1);
-        $car->save();
+//        $car->save();
 
         return redirect('/');
     }

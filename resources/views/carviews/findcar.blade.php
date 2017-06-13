@@ -36,7 +36,7 @@
 
                     <div class="list-group">
 
-                        <select class="form-control" name="Make" id="make">
+                        <select class="form-control" name="make" id="make">
 
                             <option class="my-class" value="">Марка</option>
 
@@ -46,11 +46,11 @@
 
                         </select>
 
-                        <select class="form-control" name="Model" id="model" disabled>
+                        <select class="form-control" name="model" id="model" disabled>
                             <option value="">Модел</option>
                         </select>
 
-                        <select class="form-control" name="Condition" id="condition">
+                        <select class="form-control" name="condition" id="condition">
 
                             <option value="">Състояние</option>
 
@@ -64,20 +64,20 @@
 
                             <div class="col-lg-6">
 
-                                <input type="number" class="form-control double-column" name="PriceFrom" id="price-from"
+                                <input type="number" class="form-control double-column" name="price-from" id="price-from"
                                        placeholder="Цена от">
                             </div>
 
                             <div class="col-lg-6">
 
-                                <input type="number" class="form-control double-column" name="PriceTo" id="price-to"
+                                <input type="number" class="form-control double-column" name="price-to" id="price-to"
                                        placeholder="Цена до">
 
                             </div>
 
                         </div>
 
-                        <select class="form-control" name="Year" id="year">
+                        <select class="form-control" name="year" id="year">
 
                             <option value="">Година</option>
 
@@ -87,7 +87,7 @@
 
                         </select>
 
-                        <select class="form-control" name="Fuel" id="fuel">
+                        <select class="form-control" name="fuel" id="fuel">
 
                             <option value="">Двигател</option>
 
@@ -101,20 +101,20 @@
 
                             <div class="col-lg-6">
 
-                                <input type="number" class="form-control" name="PowerFrom" id="power-from"
+                                <input type="number" class="form-control" name="power-from" id="power-from"
                                        placeholder="К.С. от">
                             </div>
 
                             <div class="col-lg-6">
 
-                                <input type="number" class="form-control" name="PowerTo" id="power-to"
+                                <input type="number" class="form-control" name="power-to" id="power-to"
                                        placeholder="К.С. до">
 
                             </div>
 
                         </div>
 
-                        <select class="form-control" name="Gears" id="gears">
+                        <select class="form-control" name="gears" id="gears">
 
                             <option value="">Скоростна кутия</option>
 
@@ -124,7 +124,7 @@
 
                         </select>
 
-                        <select class="form-control" name="Body" id="body">
+                        <select class="form-control" name="body" id="body">
 
                             <option value="">Категория</option>
 
@@ -134,7 +134,7 @@
 
                         </select>
 
-                        <select class="form-control" name="Color" id="color">
+                        <select class="form-control" name="color" id="color">
 
                             <option value="">Цвят</option>
 
@@ -148,20 +148,20 @@
 
                             <div class="col-lg-6">
 
-                                <input type="number" class="form-control" name="MileageFrom" id="mileage-from"
+                                <input type="number" class="form-control" name="mileage-from" id="mileage-from"
                                        placeholder="Пробег от">
                             </div>
 
                             <div class="col-lg-6">
 
-                                <input type="number" class="form-control" name="MileageTo" id="mileage-to"
+                                <input type="number" class="form-control" name="mileage-to" id="mileage-to"
                                        placeholder="Пробег до">
 
                             </div>
 
                         </div>
 
-                        <select class="form-control" name="Region" id="region">
+                        <select class="form-control" name="region" id="region">
 
                             <option value="">Област</option>
 
@@ -171,7 +171,7 @@
 
                         </select>
 
-                        <select class="form-control" name="Doors" id="doors">
+                        <select class="form-control" name="doors" id="doors">
 
                             <option value="">Брой врати</option>
 
@@ -190,7 +190,7 @@
 
                         <h4 class="panel-heading">Допълнителни опции</h4>
 
-                        <select class="form-control" name="Equipments" id="equipments" size="25" multiple>
+                        <select class="form-control" name="equipments" id="equipments" size="25" multiple>
 
                             @foreach($array['equipments'] as $equipment)
                                 <option value="{{$equipment->id}}">{{$equipment->name}}</option>
@@ -210,7 +210,7 @@
 
                     </label>
 
-                    <select class="form-control" name="SortBy" id="sort-by">
+                    <select class="form-control" name="sort-by" id="sort-by">
                         <option value="1">Цена - възходящо</option>
                         <option value="2">Цена - низходящо</option>
                         <option value="3">Най-новите обяви</option>

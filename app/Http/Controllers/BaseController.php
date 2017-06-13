@@ -12,6 +12,7 @@ use App\Services\EquipmentService;
 use App\Services\FuelService;
 use App\Services\GearService;
 use App\Services\RegionService;
+use App\Validators\CarValidator;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -32,6 +33,7 @@ class BaseController extends Controller
     protected $equipmentService;
     protected $doorService;
     protected $carService;
+    protected $carValidator;
 
     public function __construct(CarMakeService $cms,
                                 FuelService $fs,
@@ -42,7 +44,8 @@ class BaseController extends Controller
                                 RegionService $rs,
                                 EquipmentService $es,
                                 DoorService $ds,
-                                CarService $carserv)
+                                CarService $carserv,
+                                CarValidator $carVal)
     {
         $this->carMakeService = $cms;
         $this->fuelService = $fs;
@@ -54,5 +57,6 @@ class BaseController extends Controller
         $this->equipmentService = $es;
         $this->doorService = $ds;
         $this->carService = $carserv;
+        $this->carValidator = $carVal;
     }
 }

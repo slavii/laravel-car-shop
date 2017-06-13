@@ -36,7 +36,7 @@
 
                     <div class="list-group">
 
-                        <select class="form-control" name="Make" id="make">
+                        <select class="form-control" name="make" id="make">
 
                             <option class="my-class" value="">Марка</option>
 
@@ -46,11 +46,11 @@
 
                         </select>
 
-                        <select class="form-control" name="Model" id="model" disabled>
+                        <select class="form-control" name="model" id="model" disabled>
                             <option value="">Модел</option>
                         </select>
 
-                        <select class="form-control" name="Condition" id="condition">
+                        <select class="form-control" name="condition" id="condition">
 
                             <option value="">Състояние</option>
 
@@ -60,9 +60,9 @@
 
                         </select>
 
-                        <input type="number" class="form-control" name="Price" id="price" placeholder="Цена">
+                        <input type="number" class="form-control" name="price" id="price" placeholder="Цена">
 
-                        <select class="form-control" name="Year" id="year">
+                        <select class="form-control" name="year" id="year">
 
                             <option value="">Година</option>
 
@@ -72,7 +72,7 @@
 
                         </select>
 
-                        <select class="form-control" name="Fuel" id="fuel">
+                        <select class="form-control" name="fuel" id="fuel">
 
                             <option value="">Двигател</option>
 
@@ -82,10 +82,10 @@
 
                         </select>
 
-                        <input type="number" step="100" class="form-control" name="Power" id="power"
+                        <input type="number" step="100" class="form-control" name="power" id="power"
                                placeholder="Мощност /к.с./">
 
-                        <select class="form-control" name="Gears" id="gears">
+                        <select class="form-control" name="gears" id="gears">
 
                             <option value="">Скоростна кутия</option>
 
@@ -95,7 +95,7 @@
 
                         </select>
 
-                        <select class="form-control" name="Body" id="body">
+                        <select class="form-control" name="body" id="body">
 
                             <option value="">Категория</option>
 
@@ -105,7 +105,7 @@
 
                         </select>
 
-                        <select class="form-control" name="Color" id="color">
+                        <select class="form-control" name="color" id="color">
 
                             <option value="">Цвят</option>
 
@@ -115,10 +115,10 @@
 
                         </select>
 
-                        <input type="number" step="100" class="form-control" name="Mileage" id="mileage"
+                        <input type="number" step="100" class="form-control" name="mileage" id="mileage"
                                placeholder="Пробег">
 
-                        <select class="form-control" name="Region" id="region">
+                        <select class="form-control" name="region" id="region">
 
                             <option value="">Област</option>
 
@@ -128,7 +128,7 @@
 
                         </select>
 
-                        <select class="form-control" name="Doors" id="doors">
+                        <select class="form-control" name="doors" id="doors">
 
                             <option value="">Брой врати</option>
 
@@ -147,7 +147,8 @@
 
                         <h4 class="panel-heading">Допълнителни опции</h4>
 
-                        <select class="form-control" name="Equipments" id="equipments" size="25" multiple>
+                        <select class="form-control" name="equipments[]" id="equipments" size="25" multiple="multiple"
+                                data-toggle="dropdown">
 
                             @foreach($array['equipments'] as $equipment)
                                 <option value="{{$equipment->id}}">{{$equipment->name}}</option>

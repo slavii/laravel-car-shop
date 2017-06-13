@@ -19,7 +19,7 @@
 
                     <h2 class="my-4">Начална страница</h2>
                     <div class="list-group">
-                        <select class="list-group-item" name="Make" id="make">
+                        <select class="list-group-item" name="make" id="make">
 
                             <option value="">Марка</option>
 
@@ -29,11 +29,11 @@
 
                         </select>
 
-                        <select class="list-group-item" name="Model" id="model" disabled>
+                        <select class="list-group-item" name="model" id="model" disabled>
                             <option value="">Модел</option>
                         </select>
 
-                        <select class="list-group-item" name="Price" id="price">
+                        <select class="list-group-item" name="price" id="price">
                             <option>Цена до</option>
 
                             @foreach (range(1000, 10000, 1000) as $price)
@@ -42,7 +42,7 @@
 
                         </select>
 
-                        <select class="list-group-item" name="Year" id="year">
+                        <select class="list-group-item" name="year" id="year">
                             <option value="">Година от</option>
 
                             {{--TODO: Create Service to check for the oldest and the newest car.--}}
@@ -52,7 +52,7 @@
                             @endforeach
 
                         </select>
-                        <select class="list-group-item" name="Fuel" id="fuel">
+                        <select class="list-group-item" name="fuel" id="fuel">
 
                             <option value="">Двигател</option>
 
@@ -61,7 +61,7 @@
                             @endforeach
 
                         </select>
-                        <select class="list-group-item" name="Gears" id="gears">
+                        <select class="list-group-item" name="gears" id="gears">
 
                             <option value="">Скоростна кутия</option>
 
@@ -73,7 +73,7 @@
                     </div>
                     <br>
                     <div class="list-group button-list">
-                        <input type="button" class="list-group-item btn-primary" value="Търсене" name="Search"
+                        <input type="button" class="list-group-item btn-primary" value="Търсене" name="search"
                                id="search">
                         <a href="/findcar" class="list-group-item btn-secondary" name="Advenced-Search"
                            id="advanced-search">Подробно търсене</a>

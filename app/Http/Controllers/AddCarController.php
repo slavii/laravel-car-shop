@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Car;
 use Illuminate\Http\Request;
 
 class AddCarController extends BaseController
@@ -36,26 +35,24 @@ class AddCarController extends BaseController
 
     public function store(Request $request)
     {
-        $validateFields = $this->carService->validateFields();
+        $this->carValidator->validateFields();
 
-        if (!$validateFields) {
-            return;
-        }
+        dd($request->equipments);
 
         $carData = [
-            'car_make_id' => $request->Make,
-            'car_model_id' => $request->Model,
-            'condition_id' => $request->Condition,
-            'price' => $request->Price,
-            'year' => $request->Year,
-            'fuel_id' => $request->Fuel,
-            'power' => $request->Power,
-            'gears_id' => $request->Gears,
-            'body_id' => $request->Body,
-            'color_id' => $request->Color,
-            'mileage' => $request->Mileage,
-            'region_id' => $request->Region,
-            'door_id' => $request->Doors,
+            'car_make_id' => $request->make,
+            'car_model_id' => $request->model,
+            'condition_id' => $request->condition,
+            'price' => $request->price,
+            'year' => $request->year,
+            'fuel_id' => $request->fuel,
+            'power' => $request->power,
+            'gears_id' => $request->gears,
+            'body_id' => $request->body,
+            'color_id' => $request->color,
+            'mileage' => $request->mileage,
+            'region_id' => $request->region,
+            'door_id' => $request->doors,
 
             'image_id' => 1,
             'user_id' => 1,

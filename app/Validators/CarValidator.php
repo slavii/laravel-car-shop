@@ -3,6 +3,7 @@
 namespace App\Validators;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CarValidator
 {
@@ -16,26 +17,26 @@ class CarValidator
 
     public function validateFields()
     {
-        $carFields = [
-            $this->carValidators['Make'],
-            $this->carValidators['Model'],
-            $this->carValidators['Condition'],
-            $this->carValidators['Price'],
-            $this->carValidators['Year'],
-            $this->carValidators['Fuel'],
-            $this->carValidators['Power'],
-            $this->carValidators['Gears'],
-            $this->carValidators['Body'],
-            $this->carValidators['Color'],
-            $this->carValidators['Mileage'],
-            $this->carValidators['Region'],
-            $this->carValidators['Doors']
-        ];
+        $validator = Validator::make($this->carValidators->all(), [
+            'make' => 'required',
+            'model' => 'required',
+            'condition' => 'required',
+            'price' => 'required|max:8|integer',
+            'year' => 'required',
+            'fuel' => 'required',
+            'power' => 'required|max:4|integer',
+            'gears' => 'required',
+            'body' => 'required',
+            'color' => 'required',
+            'mileage' => 'required|max:8|integer',
+            'region' => 'required',
+            'doors' => 'required',
+        ]);
 
-        foreach ($carFields as $carField) {
-            if ($carField != integerValue()) {
-                return 0;
-            }
+        if ($validator->fails()) {
+            return redirect('/addcar')
+                ->withErrors($validator)
+                ->withInput();
         }
     }
 }

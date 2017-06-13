@@ -24,8 +24,7 @@ class CarsSeeder extends Seeder
                 'image_id' => 1,
                 'user_id' => 1,
                 'color_id' => rand(1, 14),
-                'door_id' => rand(1, 3),
-                'car_equipment_id' => rand(1, 100)
+                'door_id' => rand(1, 3)
             ));
         }
     }

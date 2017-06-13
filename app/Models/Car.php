@@ -22,13 +22,16 @@ class Car extends Model
         'mileage',
         'region_id',
         'door_id',
-        'image_id',
-        'user_id',
-        'car_equipment_id'
+        'user_id'
     ];
 
     public function equipments()
     {
-        return $this->belongsToMany(Equipment::class);
+        return $this->belongsToMany(Equipment::class, 'cars_equipments');
+    }
+
+    public function images()
+    {
+        return $this->belongsToMany(Image::class, 'cars_images');
     }
 }

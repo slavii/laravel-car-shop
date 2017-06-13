@@ -37,8 +37,6 @@ class AddCarController extends BaseController
     {
         $this->carValidator->validateFields();
 
-        dd($request->equipments);
-
         $carData = [
             'car_make_id' => $request->make,
             'car_model_id' => $request->model,
@@ -53,33 +51,17 @@ class AddCarController extends BaseController
             'mileage' => $request->mileage,
             'region_id' => $request->region,
             'door_id' => $request->doors,
-
-            'image_id' => 1,
-            'user_id' => 1,
-            'car_equipment_id' => 1
+            'user_id' => rand(1, 10),
         ];
 
-        $this->carService->create($carData);
+        $car_id = $this->carService->create($carData);
 
-//        $images = $request->file('images');
-//
-//        if (empty($images)) {
-//            echo "Няма избрани изображения!";
-//            return 0;
-//        }
-//
-//        $imgSrcs = '';
-//
-//        foreach ($images as $image) {
-//            $extension = $image->getClientOriginalExtension();
-//            $fileName = str_shuffle(md5(date('Y-m-d\TH:i:s.u'))) . '.' . $extension;
-//            $image->move(public_path() . '\assets\images', $fileName);
-//            $imgSrcs .= $fileName . ',';
-//        }
-//
-//        $car->images_src = substr($imgSrcs, 0, -1);
-//        $car->save();
-//
-//        return redirect('/');
+        $equipments = $request->equipments;
+
+        $imageData = $request->file('images');
+
+        $this->imageService->create($imageData);
+
+        return redirect('/');
     }
 }

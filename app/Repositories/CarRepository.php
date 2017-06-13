@@ -18,14 +18,8 @@ class CarRepository
         return $this->car->find($id);
     }
 
-    public function findAll()
-    {
-        return $this->car->all();
-    }
-
     public function create($data)
     {
-        return $this->car->create($data);
+        return $this->car->create($data)->id;
     }
-
 }

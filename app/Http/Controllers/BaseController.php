@@ -11,6 +11,7 @@ use App\Services\DoorService;
 use App\Services\EquipmentService;
 use App\Services\FuelService;
 use App\Services\GearService;
+use App\Services\ImageService;
 use App\Services\RegionService;
 use App\Validators\CarValidator;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -33,6 +34,7 @@ class BaseController extends Controller
     protected $equipmentService;
     protected $doorService;
     protected $carService;
+    protected $imageService;
     protected $carValidator;
 
     public function __construct(CarMakeService $cms,
@@ -45,6 +47,7 @@ class BaseController extends Controller
                                 EquipmentService $es,
                                 DoorService $ds,
                                 CarService $carserv,
+                                ImageService $is,
                                 CarValidator $carVal)
     {
         $this->carMakeService = $cms;
@@ -57,6 +60,7 @@ class BaseController extends Controller
         $this->equipmentService = $es;
         $this->doorService = $ds;
         $this->carService = $carserv;
+        $this->imageService = $is;
         $this->carValidator = $carVal;
     }
 }

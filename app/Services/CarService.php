@@ -3,17 +3,14 @@
 namespace App\Services;
 
 use App\Repositories\CarRepository;
-use App\Validators\CarValidator;
 
 class CarService
 {
     private $carRepository;
-    private $carValidator;
 
-    public function __construct(CarRepository $carRepository, CarValidator $carValidator)
+    public function __construct(CarRepository $carRepository)
     {
         $this->carRepository = $carRepository;
-        $this->carValidator = $carValidator;
     }
 
     public function findById($id)
@@ -26,9 +23,9 @@ class CarService
         return $this->carRepository->findAll();
     }
 
-    public function validateFields()
+    public function currentId()
     {
-        return $this->carValidator->validateFields();
+        return $this->carRepository->currentId();
     }
 
     public function create($data)

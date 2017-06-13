@@ -10,7 +10,7 @@ class ImagesSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             $image = new Image();
             $image->create(array(
-                'name' => str_random(10)
+                'name' => str_random(10) . ".jpeg"
             ));
         }
     }

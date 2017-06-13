@@ -11,4 +11,9 @@ class Image extends Model
     public $timestamps = false;
 
     protected $fillable = ['name'];
+
+    public function cars()
+    {
+        return $this->belongsToMany(Car::class, 'cars_images');
+    }
 }

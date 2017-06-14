@@ -35,7 +35,9 @@ class AddCarController extends BaseController
 
     public function store(Request $request)
     {
-        $this->carValidator->validateFields();
+        if ($this->carValidator->validateFields()) {
+            return redirect('/addcar');
+        }
 
         $carData = [
             'car_make_id' => $request->make,
@@ -72,11 +74,7 @@ class AddCarController extends BaseController
         $equipments = $request->equipments;
 
         foreach ($equipments as $equipment) {
-            $data = [
-                'name' => $equipment
-            ];
-            $equipment_id = $this->equipmentService->create($data)->id;
-            $this->carService->setEquipments($car_id, $equipment_id);
+            $this->carService->setEquipments($car_id, $equipment);
         }
 
         return redirect('/');

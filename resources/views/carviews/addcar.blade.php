@@ -172,6 +172,19 @@
 
                     <div class="form-control alert-danger hidden" id="result"></div>
 
+                        {{--@if ($errors->any())--}}
+                        {{--{{ implode('', $errors->all(':message')) }}--}}
+                        {{--@endif--}}
+
+                        @if(count($errors)>0)
+
+                            @foreach($errors->all() as $error)
+                                {{--<div class="form-control alert-danger hidden" id="result">{{$error}}</div>--}}
+                                {{$error}} <br>
+                            @endforeach
+
+                        @endif
+
                     <input type="reset" class="button form-control" name="Reset" id="reset"
                            value="Изчистване">
 

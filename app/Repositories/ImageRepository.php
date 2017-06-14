@@ -15,6 +15,6 @@ class ImageRepository
 
     public function create($data)
     {
-        return $this->image->create($data)->id;
+        return $this->image->create($data);
     }
 }

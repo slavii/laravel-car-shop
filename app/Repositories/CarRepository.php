@@ -20,6 +20,16 @@ class CarRepository
 
     public function create($data)
     {
-        return $this->car->create($data)->id;
+        return $this->car->create($data);
+    }
+
+    public function setImages($id1, $id2)
+    {
+        return $this->car->find($id1)->images()->attach($id2);
+    }
+
+    public function setEquipments($id1, $id2)
+    {
+        return $this->car->find($id1)->equipments()->attach($id2);
     }
 }

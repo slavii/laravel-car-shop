@@ -22,4 +22,10 @@ class EquipmentService
     {
         return $this->equipmentRepository->findAll();
     }
+
+    public function create($data)
+    {
+        return $this->equipmentRepository->create($data);
+    }
+
 }

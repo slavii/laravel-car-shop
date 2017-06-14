@@ -33,4 +33,14 @@ class CarService
         return $this->carRepository->create($data);
     }
 
+    public function setImages($id1, $id2)
+    {
+        return $this->carRepository->setImages($id1, $id2);
+    }
+
+    public function setEquipments($id1, $id2)
+    {
+        return $this->carRepository->setEquipments($id1, $id2);
+    }
+
 }

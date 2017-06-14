@@ -22,4 +22,9 @@ class EquipmentRepository
     {
         return $this->equipment->all()->sortBy('name');
     }
+
+    public function create($data)
+    {
+        return $this->equipment->create($data);
+    }
 }

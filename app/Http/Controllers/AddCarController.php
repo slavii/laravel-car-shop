@@ -54,13 +54,30 @@ class AddCarController extends BaseController
             'user_id' => rand(1, 10),
         ];
 
-        $car_id = $this->carService->create($carData);
+        $car_id = $this->carService->create($carData)->id;
+
+        $images = $request->file('images');
+
+        foreach ($images as $image) {
+            $extension = $image->getClientOriginalExtension();
+            $fileName = str_shuffle(md5(date('Y-m-d\TH:i:s.u'))) . '.' . $extension;
+            $data = [
+                'name' => $fileName
+            ];
+            $image_id = $this->imageService->create($data)->id;
+            $this->carService->setImages($car_id, $image_id);
+            $image->move(public_path() . '\assets\images', $fileName);
+        }
 
         $equipments = $request->equipments;
 
-        $imageData = $request->file('images');
-
-        $this->imageService->create($imageData);
+        foreach ($equipments as $equipment) {
+            $data = [
+                'name' => $equipment
+            ];
+            $equipment_id = $this->equipmentService->create($data)->id;
+            $this->carService->setEquipments($car_id, $equipment_id);
+        }
 
         return redirect('/');
     }

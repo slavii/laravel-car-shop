@@ -35,6 +35,7 @@ class BaseController extends Controller
     protected $doorService;
     protected $carService;
     protected $imageService;
+
     protected $carValidator;
 
     public function __construct(CarMakeService $cms,

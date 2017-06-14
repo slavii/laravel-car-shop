@@ -5,6 +5,11 @@ $(document).ready(function () {
 
     });
 
+
+    $('#reset').on('click', function (e) {
+        $('#equipments').find($('option')).attr('selected',false)
+
+    });
 });
 
 

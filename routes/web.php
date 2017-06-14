@@ -14,7 +14,7 @@
 Route::get('/', 'HomePageController@index');
 
 Route::get('/findcar', 'FindCarPageController@index');
-Route::get('/findcar/result', 'FindCarPageController@showResults');
+Route::post('/findcar', 'FindCarPageController@findResults');
 
 Route::get('/addcar', 'AddCarController@index');
 Route::post('/addcar', 'AddCarController@store');

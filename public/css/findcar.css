@@ -7,6 +7,10 @@
     margin-left: 1%;
 }
 
+.double-column-select {
+    padding-right: 0px;
+}
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;

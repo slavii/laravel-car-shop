@@ -31,6 +31,33 @@ class FindCarPageController extends BaseController
             'doors' => $doors
         ];
 
-        return view('carviews.findcar',['array'=>$array]);
+        return view('carviews.findcar', ['array' => $array]);
+    }
+
+    public function findResults(Request $request)
+    {
+        $carData = [
+            'car_make_id' => $request->make,
+            'car_model_id' => $request->model,
+            'condition_id' => $request->condition,
+            'priceFrom' => $request->priceFrom,
+            'priceTo' => $request->priceTo,
+            'yearFrom' => $request->yearFrom,
+            'yearTo' => $request->yearTo,
+            'fuel_id' => $request->fuel,
+            'powerFrom' => $request->powerFrom,
+            'powerTo' => $request->powerTo,
+            'gears_id' => $request->gears,
+            'body_id' => $request->body,
+            'color_id' => $request->color,
+            'mileageFrom' => $request->mileageFrom,
+            'mileageTo' => $request->mileageTo,
+            'region_id' => $request->region,
+            'door_id' => $request->doors
+        ];
+
+        $sortBy = $request->sortBy;
+
+        return $this->carService->findByParams($carData, $sortBy);
     }
 }

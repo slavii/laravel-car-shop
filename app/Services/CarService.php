@@ -18,11 +18,6 @@ class CarService
         return $this->carRepository->findById($id);
     }
 
-    public function findAll()
-    {
-        return $this->carRepository->findAll();
-    }
-
     public function currentId()
     {
         return $this->carRepository->currentId();
@@ -41,6 +36,16 @@ class CarService
     public function setEquipments($id1, $id2)
     {
         return $this->carRepository->setEquipments($id1, $id2);
+    }
+
+    public function findAll()
+    {
+        return $this->carRepository->findAll();
+    }
+
+    public function findByParams($data, $sortBy)
+    {
+        return $this->carRepository->findByParams($data, $sortBy);
     }
 
 }

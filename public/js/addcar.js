@@ -36,13 +36,13 @@ $(document).ready(function () {
         var formFields = [make, model, condition, price, year, fuel, power, gears, body, color, mileage, region, doors];
         var formFieldsText = [makeText, modelText, conditionText, priceText, yearText, fuelText, powerText, gearsText, bodyText, colorText, mileageText, regionText, doorsText];
 
-        // for (var i = 0; i < formFields.length; i++) {
-        //     if (formFields[i] == '') {
-        //         $('#result').append('Поле --' + formFieldsText[i] + '-- е задължително!<br>');
-        //         $('#result').removeClass('hidden');
-        //         return false;
-        //     }
-        // }
+        for (var i = 0; i < formFields.length; i++) {
+            if (formFields[i] == '') {
+                $('#result').append('Поле --' + formFieldsText[i] + '-- е задължително!<br>');
+                $('#result').removeClass('hidden');
+                return false;
+            }
+        }
 
         e.preventDefault();
 
@@ -53,6 +53,11 @@ $(document).ready(function () {
         request.open('post', '/addcar');
         request.addEventListener('load', transferComplete);
         request.send(formData);
+    });
+
+    $('#reset').on('click', function (e) {
+        $('#equipments').find($('option')).attr('selected',false)
+
     });
 
 });

@@ -64,28 +64,49 @@
 
                             <div class="col-lg-6">
 
-                                <input type="number" class="form-control double-column" name="price-from" id="price-from"
+                                <input type="number" class="form-control double-column" name="priceFrom" id="priceFrom"
                                        placeholder="Цена от">
                             </div>
 
                             <div class="col-lg-6">
 
-                                <input type="number" class="form-control double-column" name="price-to" id="price-to"
+                                <input type="number" class="form-control double-column" name="priceTo" id="priceTo"
                                        placeholder="Цена до">
 
                             </div>
 
                         </div>
 
-                        <select class="form-control" name="year" id="year">
+                        <div class="row">
 
-                            <option value="">Година</option>
+                            <div class="col-lg-6">
 
-                            @foreach (range(date("Y"), 1900, -1) as $year)
-                                <option value="{{$year}}">{{$year}}</option>
-                            @endforeach
+                                <select class="form-control double-column-select" name="yearFrom" id="yearFrom">
 
-                        </select>
+                                    <option value="1900">Година от</option>
+
+                                    @foreach (range(date("Y"), 1900, -1) as $year)
+                                        <option value="{{$year}}">{{$year}}</option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+
+                            <div class="col-lg-6">
+
+                                <select class="form-control double-column-select" name="yearTo" id="yearTo">
+
+                                    <option value="{{date("Y")}}">Година до</option>
+
+                                    @foreach (range(date("Y"), 1900, -1) as $year)
+                                        <option value="{{$year}}">{{$year}}</option>
+                                    @endforeach
+
+                                </select>
+
+                            </div>
+
+                        </div>
 
                         <select class="form-control" name="fuel" id="fuel">
 
@@ -101,13 +122,13 @@
 
                             <div class="col-lg-6">
 
-                                <input type="number" class="form-control" name="power-from" id="power-from"
+                                <input type="number" class="form-control" name="powerFrom" id="powerFrom"
                                        placeholder="К.С. от">
                             </div>
 
                             <div class="col-lg-6">
 
-                                <input type="number" class="form-control" name="power-to" id="power-to"
+                                <input type="number" class="form-control" name="powerTo" id="powerTo"
                                        placeholder="К.С. до">
 
                             </div>
@@ -148,13 +169,13 @@
 
                             <div class="col-lg-6">
 
-                                <input type="number" class="form-control" name="mileage-from" id="mileage-from"
+                                <input type="number" class="form-control" name="mileageFrom" id="mileageFrom"
                                        placeholder="Пробег от">
                             </div>
 
                             <div class="col-lg-6">
 
-                                <input type="number" class="form-control" name="mileage-to" id="mileage-to"
+                                <input type="number" class="form-control" name="mileageTo" id="mileageTo"
                                        placeholder="Пробег до">
 
                             </div>
@@ -210,7 +231,7 @@
 
                     </label>
 
-                    <select class="form-control" name="sort-by" id="sort-by">
+                    <select class="form-control" name="sortBy" id="sortBy">
                         <option value="1">Цена - възходящо</option>
                         <option value="2">Цена - низходящо</option>
                         <option value="3">Най-новите обяви</option>

@@ -176,14 +176,14 @@
                         {{--{{ implode('', $errors->all(':message')) }}--}}
                         {{--@endif--}}
 
-                        @if(count($errors)>0)
+                        {{--@if(count($errors)>0)--}}
 
-                            @foreach($errors->all() as $error)
+                            {{--@foreach($errors->all() as $error)--}}
                                 {{--<div class="form-control alert-danger hidden" id="result">{{$error}}</div>--}}
-                                {{$error}} <br>
-                            @endforeach
+                                {{--{{$error}} <br>--}}
+                            {{--@endforeach--}}
 
-                        @endif
+                        {{--@endif--}}
 
                     <input type="reset" class="button form-control" name="Reset" id="reset"
                            value="Изчистване">

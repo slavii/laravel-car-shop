@@ -17,4 +17,14 @@ class ImageService
     {
         return $this->imageRepository->create($data);
     }
+
+    public function findById($id)
+    {
+        return $this->imageRepository->find($id);
+    }
+
+    public function findAllIds()
+    {
+        return $this->imageRepository->findAllIds()->all();
+    }
 }

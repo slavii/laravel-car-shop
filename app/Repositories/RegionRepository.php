@@ -22,4 +22,9 @@ class RegionRepository
     {
         return $this->region->all();
     }
+
+    public function findAllIds()
+    {
+        return $this->region->all()->pluck('id');
+    }
 }

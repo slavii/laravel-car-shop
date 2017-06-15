@@ -17,4 +17,9 @@ class ImageRepository
     {
         return $this->image->create($data);
     }
+
+    public function findAllIds()
+    {
+        return $this->image->all()->pluck('id');
+    }
 }

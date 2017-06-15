@@ -22,4 +22,9 @@ class ColorService
     {
         return $this->colorRepository->findAll();
     }
+
+    public function findAllIds()
+    {
+        return $this->colorRepository->findAllIds()->all();
+    }
 }

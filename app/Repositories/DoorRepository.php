@@ -22,4 +22,9 @@ class DoorRepository
     {
         return $this->door->all();
     }
+
+    public function findAllIds()
+    {
+        return $this->door->all()->pluck('id');
+    }
 }

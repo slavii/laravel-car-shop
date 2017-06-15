@@ -22,4 +22,9 @@ class BodyService
     {
         return $this->bodyRepository->findAll();
     }
+
+    public function findAllIds()
+    {
+        return $this->bodyRepository->findAllIds()->all();
+    }
 }

@@ -22,4 +22,9 @@ class ConditionService
     {
         return $this->conditionRepository->findAll();
     }
+
+    public function findAllIds()
+    {
+        return $this->conditionRepository->findAllIds()->all();
+    }
 }

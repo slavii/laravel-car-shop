@@ -27,4 +27,9 @@ class CarModelService
     {
         return $this->carModelRepository->findAll();
     }
+
+    public function findAllIds()
+    {
+        return $this->carModelRepository->findAllIds()->all();
+    }
 }

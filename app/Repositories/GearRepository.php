@@ -22,4 +22,9 @@ class GearRepository
     {
         return $this->gear->all();
     }
+
+    public function findAllIds()
+    {
+        return $this->gear->all()->pluck('id');
+    }
 }

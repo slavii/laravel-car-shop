@@ -22,4 +22,9 @@ class BodyRepository
     {
         return $this->body->all();
     }
+
+    public function findAllIds()
+    {
+        return $this->body->all()->pluck('id');
+    }
 }

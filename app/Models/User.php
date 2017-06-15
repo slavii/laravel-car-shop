@@ -16,4 +16,9 @@ class User extends Authenticatable
     public $timestamps = false;
 
     protected $hidden = ['password'];
+
+    public function cars()
+    {
+        return $this->hasMany(Car::class);
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\BodyService;
 use App\Services\CarMakeService;
+use App\Services\CarModelService;
 use App\Services\CarService;
 use App\Services\ColorService;
 use App\Services\ConditionService;
@@ -25,6 +26,7 @@ class BaseController extends Controller
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     protected $carMakeService;
+    protected $carModelService;
     protected $fuelService;
     protected $gearService;
     protected $conditionService;
@@ -39,6 +41,7 @@ class BaseController extends Controller
     protected $carValidator;
 
     public function __construct(CarMakeService $cms,
+                                CarModelService $cmos,
                                 FuelService $fs,
                                 GearService $gs,
                                 ConditionService $cs,
@@ -52,6 +55,7 @@ class BaseController extends Controller
                                 CarValidator $carVal)
     {
         $this->carMakeService = $cms;
+        $this->carModelService = $cmos;
         $this->fuelService = $fs;
         $this->gearService = $gs;
         $this->conditionService = $cs;

@@ -22,4 +22,9 @@ class GearService
     {
         return $this->gearRepository->findAll();
     }
+
+    public function findAllIds()
+    {
+        return $this->gearRepository->findAllIds()->all();
+    }
 }

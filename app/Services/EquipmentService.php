@@ -28,4 +28,9 @@ class EquipmentService
         return $this->equipmentRepository->create($data);
     }
 
+    public function findAllIds()
+    {
+        return $this->equipmentRepository->findAllIds()->all();
+    }
+
 }

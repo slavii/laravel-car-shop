@@ -22,4 +22,9 @@ class RegionService
     {
         return $this->regionRepository->findAll();
     }
+
+    public function findAllIds()
+    {
+        return $this->regionRepository->findAllIds()->all();
+    }
 }

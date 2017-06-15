@@ -23,4 +23,4 @@ Route::post('/addcar', 'AddCarController@store');
 
 Route::post('/loadmodels', 'LoadModelsController@loadModels');
 
-Route::get('/findcar/{id}', 'DisplayImagesController@display');
+Route::get('/results', 'ResultsPageController@index');

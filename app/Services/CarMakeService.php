@@ -22,4 +22,9 @@ class CarMakeService
     {
         return $this->makeRepository->findAll();
     }
+
+    public function findAllIds()
+    {
+        return $this->makeRepository->findAllIds()->all();
+    }
 }

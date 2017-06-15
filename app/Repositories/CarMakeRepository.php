@@ -23,4 +23,8 @@ class CarMakeRepository
         return $this->make->all();
     }
 
+    public function findAllIds()
+    {
+        return $this->make->all()->pluck('id');
+    }
 }

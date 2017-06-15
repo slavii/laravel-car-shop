@@ -11,4 +11,9 @@ class Body extends Model
     public $timestamps = false;
 
     protected $fillable = ['name'];
+
+    public function cars()
+    {
+        return $this->hasMany(Car::class);
+    }
 }

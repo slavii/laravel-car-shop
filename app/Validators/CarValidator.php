@@ -37,16 +37,16 @@ class CarValidator
             'make' => 'required',
             'model' => 'required',
             'condition' => 'required',
-            'price' => 'required|min:1|max:8|integer',
-            'year' => 'required',
+            'price', 'priceFrom', 'priceTo' => 'required|min:1|max:8|integer',
+            'year', 'yearFrom', 'yearTo' => 'required|integer',
             'fuel' => 'required',
-            'power' => 'required|min:1|max:4|integer',
+            'power', 'powerFrom', 'powerTo'  => 'required|min:1|max:4|integer',
             'gears' => 'required',
             'body' => 'required',
             'color' => 'required',
-            'mileage' => 'required|min:1|max:8|integer',
+            'mileage', 'mileageFrom', 'mileageTo' => 'required|min:1|max:8|integer',
             'region' => 'required',
-            'doors' => 'required',
+            'doors' => 'required'
         ], $messages);
 
         if ($validator->fails()) {

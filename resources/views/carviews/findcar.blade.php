@@ -83,7 +83,7 @@
 
                                 <select class="form-control double-column-select" name="yearFrom" id="yearFrom">
 
-                                    <option value="1900">Година от</option>
+                                    <option value="">Година от</option>
 
                                     @foreach (range(date("Y"), 1900, -1) as $year)
                                         <option value="{{$year}}">{{$year}}</option>
@@ -96,7 +96,7 @@
 
                                 <select class="form-control double-column-select" name="yearTo" id="yearTo">
 
-                                    <option value="{{date("Y")}}">Година до</option>
+                                    <option value="">Година до</option>
 
                                     @foreach (range(date("Y"), 1900, -1) as $year)
                                         <option value="{{$year}}">{{$year}}</option>
@@ -232,15 +232,16 @@
                     </label>
 
                     <select class="form-control" name="sortBy" id="sortBy">
-                        <option value="1">Цена - възходящо</option>
-                        <option value="2">Цена - низходящо</option>
-                        <option value="3">Най-новите обяви</option>
-                        <option value="4">Година на производство - възходящо</option>
-                        <option value="5">Година на производство - възходящо</option>
-                        <option value="6">Пробег - възходящо</option>
-                        <option value="7">Пробег - низходящо</option>
-                        <option value="8">Мощност - възходящо</option>
-                        <option value="9">Мощност - низходящо</option>
+                        <option value="priceAsc">Цена - възходящо</option>
+                        <option value="priceDesc">Цена - низходящо</option>
+                        <option value="createdAsc">Най-новите обяви</option>
+                        <option value="createdDesc">Най-старите обяви</option>
+                        <option value="yearAsc">Година на производство - възходящо</option>
+                        <option value="yearDesc">Година на производство - възходящо</option>
+                        <option value="mileageAsc">Пробег - възходящо</option>
+                        <option value="mileageDesc">Пробег - низходящо</option>
+                        <option value="powerAsc">Мощност - възходящо</option>
+                        <option value="powerDesc">Мощност - низходящо</option>
 
                     </select>
 

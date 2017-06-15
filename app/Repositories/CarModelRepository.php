@@ -27,4 +27,9 @@ class CarModelRepository
     {
         return $this->model->all();
     }
+
+    public function findAllIds()
+    {
+        return $this->model->all()->pluck('id');
+    }
 }

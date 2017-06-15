@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\CarMakeService;
-use App\Services\FuelService;
-use App\Services\GearService;
 
 class HomePageController extends BaseController
 {

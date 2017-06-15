@@ -22,4 +22,9 @@ class FuelService
     {
         return $this->fuelRepository->findAll();
     }
+
+    public function findAllIds()
+    {
+        return $this->fuelRepository->findAllIds()->all();
+    }
 }

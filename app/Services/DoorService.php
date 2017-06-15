@@ -22,4 +22,9 @@ class DoorService
     {
         return $this->doorRepository->findAll();
     }
+
+    public function findAllIds()
+    {
+        return $this->doorRepository->findAllIds()->all();
+    }
 }

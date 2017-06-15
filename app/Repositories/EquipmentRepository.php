@@ -27,4 +27,9 @@ class EquipmentRepository
     {
         return $this->equipment->create($data);
     }
+
+    public function findAllIds()
+    {
+        return $this->equipment->all()->pluck('id');
+    }
 }

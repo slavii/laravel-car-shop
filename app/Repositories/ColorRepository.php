@@ -22,4 +22,9 @@ class ColorRepository
     {
         return $this->color->all();
     }
+
+    public function findAllIds()
+    {
+        return $this->color->all()->pluck('id');
+    }
 }

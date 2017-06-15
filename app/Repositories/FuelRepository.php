@@ -22,4 +22,9 @@ class FuelRepository
     {
         return $this->fuel->all();
     }
+
+    public function findAllIds()
+    {
+        return $this->fuel->all()->pluck('id');
+    }
 }

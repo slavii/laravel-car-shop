@@ -10,8 +10,10 @@ class CarsSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             $car = new Car();
             $car->create(array(
-                'car_make_id' => rand(1, 114),
-                'car_model_id' => rand(1, 1487),
+//                'car_make_id' => rand(1, 114),
+//                'car_model_id' => rand(1, 1487),
+                'car_make_id' => 36,
+                'car_model_id' => rand(494, 518),
                 'fuel_id' => rand(1, 6),
                 'gears_id' => rand(1, 4),
                 'year' => rand(1990, 2015),

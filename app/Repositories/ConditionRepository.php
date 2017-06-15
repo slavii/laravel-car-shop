@@ -22,4 +22,9 @@ class ConditionRepository
     {
         return $this->condition->all();
     }
+
+    public function findAllIds()
+    {
+        return $this->condition->all()->pluck('id');
+    }
 }

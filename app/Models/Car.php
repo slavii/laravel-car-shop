@@ -72,7 +72,7 @@ class Car extends Model
 
     public function gears()
     {
-        return $this->belongsTo(Gear::class, 'gear_id');
+        return $this->belongsTo(Gear::class, 'gears_id');
     }
 
     public function regions()

@@ -211,7 +211,7 @@
 
                         <h4 class="panel-heading">Допълнителни опции</h4>
 
-                        <select class="form-control" name="equipments" id="equipments" size="25" multiple>
+                        <select class="form-control" name="equipments[]" id="equipments" size="25" multiple>
 
                             @foreach($array['equipments'] as $equipment)
                                 <option value="{{$equipment->id}}">{{$equipment->name}}</option>

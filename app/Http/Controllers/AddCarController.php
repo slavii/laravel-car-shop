@@ -60,15 +60,17 @@ class AddCarController extends BaseController
 
         $images = $request->file('images');
 
-        foreach ($images as $image) {
-            $extension = $image->getClientOriginalExtension();
-            $fileName = str_shuffle(md5(date('Y-m-d\TH:i:s.u'))) . '.' . $extension;
-            $data = [
-                'name' => $fileName
-            ];
-            $image_id = $this->imageService->create($data)->id;
-            $this->carService->setImages($car_id, $image_id);
-            $image->move(public_path() . '\assets\images', $fileName);
+        if ($images) {
+            foreach ($images as $image) {
+                $extension = $image->getClientOriginalExtension();
+                $fileName = str_shuffle(md5(date('Y-m-d\TH:i:s.u'))) . '.' . $extension;
+                $data = [
+                    'name' => $fileName
+                ];
+                $image_id = $this->imageService->create($data)->id;
+                $this->carService->setImages($car_id, $image_id);
+                $image->move(public_path() . '\assets\images', $fileName);
+            }
         }
 
         $equipments = $request->equipments;

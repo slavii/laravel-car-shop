@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Session;
 
 class ResultsPageController extends BaseController
 {
 
     public function index()
     {
-        return view('carviews.results');
+        $cars = Session::get('cars');
+        return view('carviews.results', ['cars' => $cars]);
     }
 }

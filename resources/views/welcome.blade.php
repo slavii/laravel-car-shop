@@ -8,7 +8,7 @@
 
     <script src="js/loadModels.js"></script>
 
-    <form class="form-horizontal" action="/findcar" method="post" enctype="multipart/form-data" id="form">
+    <form class="form-horizontal" action="/" method="post" enctype="multipart/form-data" id="form">
         {{csrf_field()}}
 
         <div class="container">
@@ -33,8 +33,8 @@
                             <option value="">Модел</option>
                         </select>
 
-                        <select class="list-group-item" name="price" id="price">
-                            <option>Цена до</option>
+                        <select class="list-group-item" name="priceTo" id="priceTo">
+                            <option value="">Цена до</option>
 
                             @foreach (range(1000, 10000, 1000) as $price)
                                 <option value="{{$price}}">{{$price}}лв</option>
@@ -42,10 +42,8 @@
 
                         </select>
 
-                        <select class="list-group-item" name="year" id="year">
+                        <select class="list-group-item" name="yearFrom" id="yearFrom">
                             <option value="">Година от</option>
-
-                            {{--TODO: Create Service to check for the oldest and the newest car.--}}
 
                             @foreach (range(date("Y"), 1900, -1) as $year)
                                 <option value="{{$year}}">{{$year}}</option>
@@ -70,11 +68,26 @@
                             @endforeach
 
                         </select>
+                        <select class="list-group-item" name="sortBy" id="sortBy">
+                            <option value="priceAsc">Цена - възходящо</option>
+                            <option value="priceDesc">Цена - низходящо</option>
+                            <option value="createdAsc">Най-новите обяви</option>
+                            <option value="createdDesc">Най-старите обяви</option>
+                            <option value="yearAsc">Година на производство - възходящо</option>
+                            <option value="yearDesc">Година на производство - възходящо</option>
+                            <option value="mileageAsc">Пробег - възходящо</option>
+                            <option value="mileageDesc">Пробег - низходящо</option>
+                            <option value="powerAsc">Мощност - възходящо</option>
+                            <option value="powerDesc">Мощност - низходящо</option>
+
+                        </select>
+
                     </div>
                     <br>
                     <div class="list-group button-list">
-                        <input type="button" class="list-group-item btn-primary" value="Търсене" name="search"
-                               id="search">
+                        <input type="submit" class="list-group-item button btn-primary" name="submit" id="submit"
+                               value="Търсене">
+
                         <a href="/findcar" class="list-group-item btn-secondary" name="Advenced-Search"
                            id="advanced-search">Подробно търсене</a>
                     </div>

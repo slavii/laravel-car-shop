@@ -89,8 +89,21 @@ class CarRepository
         return $collection->sortByDesc($sort);
     }
 
+    public function findByShortParams($data)
+    {
+        return $this->car
+            ->whereIn('car_make_id', $data['car_make_id'])
+            ->whereIn('car_model_id', $data['car_model_id'])
+            ->whereIn('fuel_id', $data['fuel_id'])
+            ->whereIn('gears_id', $data['gears_id'])
+            ->where('price', '<=', $data['priceTo'])
+            ->where('year', '>=', $data['yearFrom'])
+            ->get();
+    }
+
     public function findByParams($data)
     {
+//        dd($this->findById($data['car_make_id'])->equipments->all());
         return $this->car
             ->whereIn('car_make_id', $data['car_make_id'])
             ->whereIn('car_model_id', $data['car_model_id'])
@@ -100,7 +113,7 @@ class CarRepository
             ->whereIn('body_id', $data['body_id'])
             ->whereIn('color_id', $data['color_id'])
             ->whereIn('region_id', $data['region_id'])
-            ->whereIn('door_id', $data['door_id'])
+//            ->whereIn($this->findById($data['car_make_id'])->equipments->all(), $data['equipments'])
             ->whereBetween('price', [$data['priceFrom'], $data['priceTo']])
             ->whereBetween('year', [$data['yearFrom'], $data['yearTo']])
             ->whereBetween('power', [$data['powerFrom'], $data['powerTo']])

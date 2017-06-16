@@ -104,4 +104,16 @@ class CarService
         $collection = $this->carRepository->findByParams($data);
         return $this->carRepository->sortCollectionDesc($collection, $sort);
     }
+
+    public function findByShortParamsSortAsc($data, $sort)
+    {
+        $collection = $this->carRepository->findByShortParams($data);
+        return $this->carRepository->sortCollectionAsc($collection, $sort);
+    }
+
+    public function findByShortParamsSortDesc($data, $sort)
+    {
+        $collection = $this->carRepository->findByShortParams($data);
+        return $this->carRepository->sortCollectionDesc($collection, $sort);
+    }
 }

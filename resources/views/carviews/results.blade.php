@@ -30,15 +30,13 @@
                                                  alt=""></a>
                                 <div class="card-block">
                                     <h4 class="card-title"><a
-                                                href="#">{{$car->car_makes->name . ' ' . $car->car_models->name}}</a>
+                                                href="/car{{$car->id}}">{{$car->car_makes->name . ' ' . $car->car_models->name}}</a>
                                     </h4>
                                     <h5>{{$car->price}} лв</h5>
-                                    {{--<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet--}}
-                                        {{--numquam--}}
-                                        {{--aspernatur!</p>--}}
+                                    <p class="card-text">Регион {{$car->regions->name}}</p>
                                 </div>
                                 <div class="card-footer">
-                                    <small class="text-muted">{{\Carbon\Carbon::now()->diffForHumans($car->created_at)}}</small>
+                                    <small class="text-muted">{{$car->created_at->diffForHumans()}}</small>
                                 </div>
 
                             </div>

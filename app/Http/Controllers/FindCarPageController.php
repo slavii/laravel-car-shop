@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
 class FindCarPageController extends BaseController
 {
@@ -54,7 +53,8 @@ class FindCarPageController extends BaseController
             'mileageFrom' => $request->mileageFrom,
             'mileageTo' => $request->mileageTo,
             'region_id' => $request->region,
-            'door_id' => $request->doors
+            'door_id' => $request->doors,
+            'equipments' => $request->equipments
         ];
 
         $carData['car_make_id'] = ($carData['car_make_id'] == null) ? $this->carMakeService->findAllIds() : array($carData['car_make_id']);
@@ -170,10 +170,10 @@ class FindCarPageController extends BaseController
             }
         }
 
-//        return view('carviews.results', ['cars' => $this->carService->findByIds($carIds)]);
-
         $cars = $this->carService->findByIds($carIds);
 
-        return redirect('results')->with(['cars' => $cars]);
+//        dd($cars[0]->images->all());
+
+        return redirect('results')->with('cars', $cars);
     }
 }

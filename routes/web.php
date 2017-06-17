@@ -11,6 +11,8 @@
 |
 */
 
+use App\Services\CarService;
+
 Route::get('/', 'HomePageController@index');
 Route::post('/', 'HomePageController@findResults');
 
@@ -24,6 +26,6 @@ Route::post('/loadmodels', 'LoadModelsController@loadModels');
 
 Route::get('/results', 'ResultsPageController@index');
 
-Route::get('/car{id}', 'CarPageController@index');
+Route::get('/car/{id}', 'CarPageController@index');
 
 Route::post('/updateLocation', 'LocationController@setLocation');

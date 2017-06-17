@@ -28,14 +28,14 @@
 
                                 @if($car->images->all())
 
-                                    <a href="/car{{$car->id}}"><img class="card-img-top img-fluid"
-                                                                    src="assets/images/{{$car->images[0]->name}}"
+                                    <a href="/car/{{$car->id}}"><img class="card-img-top img-fluid"
+                                                                    src="/assets/images/{{$car->images[0]->name}}"
                                                                     alt=""></a>
 
                                 @else
 
-                                    <a href="/car{{$car->id}}"><img class="card-img-top img-fluid"
-                                                                    src="assets/other/no-image.jpg"
+                                    <a href="/car/{{$car->id}}"><img class="card-img-top img-fluid"
+                                                                    src="/assets/other/no-image.jpg"
                                                                     alt=""></a>
 
                                 @endif
@@ -43,7 +43,7 @@
                                 <div class="card-block">
                                     <h5 class="pull-right">{{$car->price}} лв</h5>
                                     <h4 class="card-title"><a
-                                                href="/car{{$car->id}}">{{$car->car_makes->name . ' ' . $car->car_models->name}}</a>
+                                                href="/car/{{$car->id}}">{{$car->car_makes->name . ' ' . $car->car_models->name}}</a>
                                     </h4>
                                     <span class="card-text"><b>Състояние</b> {{$car->conditions->name}}</span>
                                     <br>

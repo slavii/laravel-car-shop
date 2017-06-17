@@ -20,17 +20,17 @@
 
     <script src="https://use.fontawesome.com/6d102a03b9.js"></script>
 
-    <script src="vendor/jquery/jquery.js"></script>
+    <script src="/vendor/jquery/jquery.js"></script>
 
-    <script src="vendor/js/bootstrap.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.js"></script>
 
     <link rel="stylesheet" href="/css/page.css">
 
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="css/shop-homepage.css" rel="stylesheet">
+    <link href="/css/shop-homepage.css" rel="stylesheet">
 
-    <link href="css/shop-item.css" rel="stylesheet">
+    <link href="/css/shop-item.css" rel="stylesheet">
 
     <style>
         .navbar-toggler {
@@ -98,9 +98,9 @@
 </footer>
 
 <!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/tether/tether.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/tether/tether.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 

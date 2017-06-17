@@ -172,8 +172,6 @@ class FindCarPageController extends BaseController
 
         $cars = $this->carService->findByIds($carIds);
 
-//        dd($cars[0]->images[0]->name);
-
         return redirect('results')->with('cars', $cars);
     }
 }

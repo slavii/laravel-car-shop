@@ -4,8 +4,8 @@
 
 @section('body')
 
-    <link rel="stylesheet" href="css/car.css">
-    <script src="js/car.js"></script>
+    <link rel="stylesheet" href="/css/car.css">
+    <script src="/js/car.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -59,7 +59,30 @@
 
                                 </div>
 
-                                <div class="col-lg-7">
+                                <div class="col-lg-3">
+
+                                    <div class="" id="equipments">
+
+                                        <ul class="list-group">
+
+                                            @if($car->equipments->all())
+
+                                                <h5>Допълнителни опции</h5>
+
+                                                @foreach($car->equipments->all() as $equipment)
+
+                                                    <li class="list-group-item equipments">{{$equipment->name}}</li>
+
+                                                @endforeach
+
+                                            @endif
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-4">
 
                                     <div class="" id="map"></div>
 
@@ -89,7 +112,7 @@
                                 @foreach($car->images->all() as $key => $image)
 
                                     <div class="carousel-item @if($key == 0) {{'active'}} @endif">
-                                        <img class="d-block img-fluid" src="assets/images/{{$image->name}}">
+                                        <img class="d-block img-fluid" src="/assets/images/{{$image->name}}">
                                     </div>
 
                                 @endforeach

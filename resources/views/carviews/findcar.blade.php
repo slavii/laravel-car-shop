@@ -237,7 +237,7 @@
                         <option value="createdAsc">Най-новите обяви</option>
                         <option value="createdDesc">Най-старите обяви</option>
                         <option value="yearAsc">Година на производство - възходящо</option>
-                        <option value="yearDesc">Година на производство - възходящо</option>
+                        <option value="yearDesc">Година на производство - низходящо</option>
                         <option value="mileageAsc">Пробег - възходящо</option>
                         <option value="mileageDesc">Пробег - низходящо</option>
                         <option value="powerAsc">Мощност - възходящо</option>

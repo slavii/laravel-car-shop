@@ -79,6 +79,6 @@ class AddCarController extends BaseController
             $this->carService->setEquipments($car_id, $equipment);
         }
 
-        return redirect('/');
+        return redirect('/addcar');
     }
 }

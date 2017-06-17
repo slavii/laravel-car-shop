@@ -144,11 +144,11 @@ class FindCarPageController extends BaseController
                 $carIds = $this->carService->findByParamsSortAsc($carData, 'created_at');
                 break;
             }
-            case 'yearsAsc': {
+            case 'yearAsc': {
                 $carIds = $this->carService->findByParamsSortAsc($carData, 'year');
                 break;
             }
-            case 'yearsDesc': {
+            case 'yearDesc': {
                 $carIds = $this->carService->findByParamsSortDesc($carData, 'year');
                 break;
             }
@@ -172,7 +172,7 @@ class FindCarPageController extends BaseController
 
         $cars = $this->carService->findByIds($carIds);
 
-//        dd($cars[0]->images->all());
+//        dd($cars[0]->images[0]->name);
 
         return redirect('results')->with('cars', $cars);
     }

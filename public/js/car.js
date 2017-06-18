@@ -18,6 +18,10 @@ $(document).ready(function () {
         }
     });
 
+    $('#delete').on('click', function (e) {
+        confirmDelete();
+    });
+
 });
 
 function initMap(lat, lng) {
@@ -34,4 +38,23 @@ function initMap(lat, lng) {
         position: uluru,
         map: map
     });
+}
+
+function confirmDelete() {
+    var link = window.location.href;
+    var car_id = link.substring(23);
+
+    var answer = confirm("Сигурни ли сте?")
+    if (answer) {
+        $.ajax({
+            url: '/deletecar',
+            method: 'POST',
+            data: {
+                car_id: car_id
+            },
+            success: function (response) {
+                window.location.href = '/';
+            }
+        });
+    }
 }

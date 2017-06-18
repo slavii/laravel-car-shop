@@ -38,6 +38,11 @@ class CarService
         return $this->carRepository->create($data);
     }
 
+    public function delete($id)
+    {
+        return $this->carRepository->findById($id)->delete();
+    }
+
     public function setImages($id1, $id2)
     {
         return $this->carRepository->setImages($id1, $id2);

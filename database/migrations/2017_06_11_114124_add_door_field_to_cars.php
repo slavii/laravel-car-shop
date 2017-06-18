@@ -15,7 +15,7 @@ class AddDoorFieldToCars extends Migration
     {
         Schema::table('cars', function (Blueprint $table) {
             $table->integer('door_id')->unsigned();
-            $table->foreign('door_id')->references('id')->on('doors');
+            $table->foreign('door_id')->references('id')->on('doors')->onDelete('cascade');;
         });
     }
 
@@ -26,8 +26,8 @@ class AddDoorFieldToCars extends Migration
      */
     public function down()
     {
-        Schema::table('cars', function ($table) {
-            $table->dropColumn('door_id');
-        });
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('cars');
+        Schema::enableForeignKeyConstraints();
     }
 }

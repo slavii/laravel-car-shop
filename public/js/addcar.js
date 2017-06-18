@@ -40,19 +40,11 @@ $(document).ready(function () {
             if (formFields[i] == '') {
                 $('#result').append('Поле --' + formFieldsText[i] + '-- е задължително!<br>');
                 $('#result').removeClass('hidden');
+
+                e.preventDefault();
                 return false;
             }
         }
-
-        e.preventDefault();
-
-        var form = document.getElementById('form');
-        var request = new XMLHttpRequest();
-        var formData = new FormData(form);
-
-        request.open('post', '/addcar');
-        request.addEventListener('load', transferComplete);
-        request.send(formData);
     });
 
     $('#reset').on('click', function (e) {

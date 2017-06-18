@@ -26,6 +26,8 @@ class CreateBodiesTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('bodies');
+        Schema::enableForeignKeyConstraints();
     }
 }

@@ -15,7 +15,7 @@ class CarValidator
         $this->carValidators = $request;
     }
 
-    public function validateFields()
+    public function validateFields(Request $request)
     {
         $messages = [
             'make.required' => 'Полето -Марка- е задължително.',
@@ -33,7 +33,7 @@ class CarValidator
             'doors.required' => 'Полето -Брой врати- е задължително.',
         ];
 
-        $validator = Validator::make($this->carValidators->all(), [
+        $validator = Validator::make($request->all(), [
             'make' => 'required',
             'model' => 'required',
             'condition' => 'required',
@@ -62,9 +62,9 @@ class CarValidator
         ], $messages);
 
         if ($validator->fails()) {
-            return redirect('/addcar')
-                ->withErrors($validator)
-                ->withInput();
+            return [$validator];
         }
+
+        return [];
     }
 }

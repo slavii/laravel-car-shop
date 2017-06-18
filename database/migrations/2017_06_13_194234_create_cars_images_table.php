@@ -16,9 +16,9 @@ class CreateCarsImagesTable extends Migration
         Schema::create('cars_images', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('car_id')->unsigned();
-            $table->foreign('car_id')->references('id')->on('cars');
+            $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
             $table->integer('image_id')->unsigned();
-            $table->foreign('image_id')->references('id')->on('images');
+            $table->foreign('image_id')->references('id')->on('images')->onDelete('cascade');
         });
     }
 
@@ -29,6 +29,8 @@ class CreateCarsImagesTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('cars_images');
+        Schema::enableForeignKeyConstraints();
     }
 }

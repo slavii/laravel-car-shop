@@ -26,6 +26,8 @@ class CreateColorTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('colors');
+        Schema::enableForeignKeyConstraints();
     }
 }

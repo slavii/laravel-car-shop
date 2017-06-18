@@ -131,6 +131,9 @@
                             </a>
                         </div>
 
+                        <input type="button" class="btn btn-danger pull-right" value="Изтриване" name="delete"
+                               id="delete">
+
                     </div>
 
                 </div>

@@ -26,6 +26,8 @@ class CreateGearsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('gears');
+        Schema::enableForeignKeyConstraints();
     }
 }

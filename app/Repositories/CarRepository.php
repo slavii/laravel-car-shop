@@ -24,6 +24,11 @@ class CarRepository
         return $this->car->create($data);
     }
 
+    public function delete($id)
+    {
+        return $this->car->delete($id);
+    }
+
     public function setImages($id1, $id2)
     {
         return $this->car->find($id1)->images()->attach($id2);

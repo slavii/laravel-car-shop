@@ -82,7 +82,7 @@
 
                         </select>
 
-                        <input type="number" step="100" class="form-control" name="power" id="power"
+                        <input type="number" class="form-control" name="power" id="power"
                                placeholder="Мощност /к.с./">
 
                         <select class="form-control" name="gears" id="gears">
@@ -115,7 +115,7 @@
 
                         </select>
 
-                        <input type="number" step="100" class="form-control" name="mileage" id="mileage"
+                        <input type="number" class="form-control" name="mileage" id="mileage"
                                placeholder="Пробег">
 
                         <select class="form-control" name="region" id="region">

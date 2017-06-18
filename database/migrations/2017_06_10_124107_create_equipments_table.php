@@ -26,6 +26,8 @@ class CreateEquipmentsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('equipments');
+        Schema::enableForeignKeyConstraints();
     }
 }

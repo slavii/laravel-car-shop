@@ -17,7 +17,7 @@ class CreateModelsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('car_make_id')->unsigned();
-            $table->foreign('car_make_id')->references('id')->on('car_makes');
+            $table->foreign('car_make_id')->references('id')->on('car_makes')->onDelete('cascade');
         });
     }
 
@@ -28,6 +28,8 @@ class CreateModelsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('car_models');
+        Schema::enableForeignKeyConstraints();
     }
 }

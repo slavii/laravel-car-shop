@@ -19,8 +19,9 @@ Route::post('/', 'HomePageController@findResults');
 Route::get('/findcar', 'FindCarPageController@index');
 Route::post('/findcar', 'FindCarPageController@findResults');
 
-Route::get('/addcar', 'AddCarController@index');
-Route::post('/addcar', 'AddCarController@store');
+Route::get('/addcar', 'CarController@index');
+Route::post('/addcar', 'CarController@store');
+Route::post('/deletecar', 'CarController@delete');
 
 Route::post('/loadmodels', 'LoadModelsController@loadModels');
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AddCarController extends BaseController
+class CarController extends BaseController
 {
     public function index()
     {
@@ -35,8 +35,11 @@ class AddCarController extends BaseController
 
     public function store(Request $request)
     {
-        if ($this->carValidator->validateFields()) {
-            return redirect('/addcar');
+        $valid = $this->carValidator->validateFields($request);
+        if(count($valid)) {
+            return redirect('/addcar')
+                ->withErrors($valid[0])
+                ->withInput();
         }
 
         $carData = [
@@ -79,6 +82,15 @@ class AddCarController extends BaseController
             $this->carService->setEquipments($car_id, $equipment);
         }
 
-        return redirect('/addcar');
+        return redirect('/car/' . $car_id);
+    }
+
+    public function delete(Request $request)
+    {
+        $car_id = $request->car_id;
+
+        $this->carService->delete($car_id);
+
+//        header('Location: /');
     }
 }

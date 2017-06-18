@@ -15,7 +15,7 @@ class AddColorFieldToCars extends Migration
     {
         Schema::table('cars', function (Blueprint $table) {
             $table->integer('color_id')->unsigned();
-            $table->foreign('color_id')->references('id')->on('colors');
+            $table->foreign('color_id')->references('id')->on('colors')->onDelete('cascade');
         });
     }
 
@@ -26,8 +26,8 @@ class AddColorFieldToCars extends Migration
      */
     public function down()
     {
-        Schema::table('cars', function ($table) {
-            $table->dropColumn('color_id');
-        });
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('cars');
+        Schema::enableForeignKeyConstraints();
     }
 }

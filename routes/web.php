@@ -11,8 +11,6 @@
 |
 */
 
-use App\Services\CarService;
-
 Route::get('/', 'HomePageController@index');
 Route::post('/', 'HomePageController@findResults');
 
@@ -30,3 +28,7 @@ Route::get('/results', 'ResultsPageController@index');
 Route::get('/car/{id}', 'CarPageController@index');
 
 Route::post('/updateLocation', 'LocationController@setLocation');
+
+Route::get('/test', function () {
+    return view('layouts.app');
+});

@@ -90,7 +90,5 @@ class CarController extends BaseController
         $car_id = $request->car_id;
 
         $this->carService->delete($car_id);
-
-//        header('Location: /');
     }
 }

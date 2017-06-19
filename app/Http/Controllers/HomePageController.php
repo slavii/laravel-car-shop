@@ -107,8 +107,6 @@ class HomePageController extends BaseController
 
         $cars = $this->carService->findByIds($carIds);
 
-//        dd($cars[0]->images->all());
-
         return redirect('results')->with('cars', $cars);
     }
 }

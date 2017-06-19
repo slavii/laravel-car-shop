@@ -49,14 +49,9 @@ $(document).ready(function () {
 
     $('#reset').on('click', function (e) {
         $('#equipments').find($('option')).attr('selected',false)
-
     });
 
 });
-
-function transferComplete(data) {
-    console.log(data.currentTarget.response);
-}
 
 window.onmousedown = function (e) {
     var el = e.target;
